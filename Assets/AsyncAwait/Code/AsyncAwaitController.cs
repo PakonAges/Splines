@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ namespace AsyncAwaitTryouts
         public GameObject[] Items;
 
         private ItemMover _mover;
+        private int _iterator = 0; //used to continue movement after Pause from the same spot
 
         private void Awake()
         {
@@ -67,35 +69,41 @@ namespace AsyncAwaitTryouts
                 Debug.Log("Movement Started");
                 _isMoving = true;
 
-                var moveFirst = await _mover.Move(Items[0].transform, Items[0].transform.position + Vector3.down, MovementDuration);
-
-                for (int i = 1; i < ItemsToSpawn; i++)
+                if (_iterator == 0)
                 {
-
-                    int prevIndex = (i != 0) ? (i - 1) : ItemsToSpawn - 1;
-                    Transform prevItem = Items[prevIndex].transform;
-                    Vector3 prevItemNewPosition = prevItem.position + Vector3.up;
-
-                    Transform item = Items[i].transform;
-                    Vector3 newPosition = item.position + Vector3.down;
-
-                    var moveOld = await _mover.Move2(prevItem, item, prevItemNewPosition, newPosition, MovementDuration);
-
-
-                    i = (i == (ItemsToSpawn - 1)) ? i = -1 : i;
+                    var moveFirst = await _mover.Move(Items[0].transform, Vector3.down, MovementDuration);
+                    _iterator = 1;
                 }
 
+                for (int i = _iterator; i < ItemsToSpawn; i++)
+                {
+                    if (_isMoving)
+                    {
+                        int prevIndex = (i != 0) ? (i - 1) : ItemsToSpawn - 1;
+                        Transform prevItem = Items[prevIndex].transform;
+                        Vector3 prevItemNewPosition = new Vector3(prevIndex, 0, 0);
+
+                        Transform item = Items[i].transform;
+                        Vector3 newPosition = new Vector3(i, -1, 0);
+
+                        var moveOld = await _mover.Move2(prevItem, item, prevItemNewPosition, newPosition, MovementDuration);
+
+                        i = (i == (ItemsToSpawn - 1)) ? i = -1 : i;
+                        _iterator = i;
+                    }
+                }   
             }
             catch
             {
                 _isMoving = false;
-                Debug.Log("An error occurred in Start Movement");
+                Debug.LogFormat("An error occurred in Start Movement. Iterator: {0}" , _iterator);
             }
         }
 
         void StopMovement()
         {
             _isMoving = false;
+            //DOTween.CompleteAll();
             Debug.Log("Movement Stopped");
         }
     }
