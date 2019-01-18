@@ -30,7 +30,7 @@ public class AddingInheritedItemsToList : MonoBehaviour
         {
             if (ItemsList[i].ItemType == TestItemType.Advanced)
             {
-                var hp = ItemsList[i].HitPoints;
+                //var hp = ItemsList[i].HitPoints;
                 Debug.LogFormat("Item {0} in List, is Movable", i);
             }
             else
