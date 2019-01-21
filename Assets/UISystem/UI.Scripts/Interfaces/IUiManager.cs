@@ -1,4 +1,7 @@
-﻿public interface IUiManager
+﻿using System.Threading.Tasks;
+
+public interface IUiManager
 {
-    void ShowWindow(ViewType type);
+    Task InitViewsAsync();
+    Task ShowWindowAsync<T>() where T : GenericView;
 }

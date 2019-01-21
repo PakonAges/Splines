@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using UnityEngine;
+using UnityWeld.Binding;
 
+[Binding]
 public abstract class GenericView : MonoBehaviour, IWindow, INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
@@ -8,5 +10,10 @@ public abstract class GenericView : MonoBehaviour, IWindow, INotifyPropertyChang
     internal void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    public virtual void OnWrapped()
+    {
+        //Something like Awake / Start
     }
 }

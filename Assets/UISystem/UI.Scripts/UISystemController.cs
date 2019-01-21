@@ -9,18 +9,19 @@ public class UISystemController : MonoBehaviour
     public void Construct(IUiManager uiManager)
     {
         _uiManager = uiManager;
+        _uiManager.InitViewsAsync();
     }
 
     void Start()
     {
-        _uiManager.ShowWindow(ViewType.HUD);
+        //_uiManager.ShowWindowAsync(ViewType.HUDView);
     }
 }
 
 public enum ViewType
 {
     Invalid,
-    HUD,
-    Menu,
-    Submenu
+    HUDView,
+    MenuView,
+    SubMenuView
 }
