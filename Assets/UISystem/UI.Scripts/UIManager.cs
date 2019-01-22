@@ -14,6 +14,7 @@ namespace myUi
         //Data for HUDView Canvas
         readonly UITestDataClass _uITestDataClass;
         CanvasFacade<HUDView> _HUDView;
+        CanvasFacade<MenuView> _OverlayMenu;
 
         bool _initCompleted = false;
 
@@ -24,11 +25,13 @@ namespace myUi
             _uITestDataClass = uITestDataClass;
         }
 
+
         public async Task InitViewsAsync()
         {
             try
             {
                 _HUDView = await _canvasBuilder.BuildAsync<HUDView>();
+                _OverlayMenu = await _canvasBuilder.BuildAsync<MenuView>();
             }
             catch (Exception e)
             {
@@ -36,12 +39,21 @@ namespace myUi
             }
 
             _HUDView.CanvasMV.Initialize(this, _uITestDataClass);
+            _OverlayMenu.CanvasMV.Initialize(this);
+            _OverlayMenu.Enabled = false;
+
             _initCompleted = true;
         }
 
         public async Task ShowWindowAsync<T>() where T : GenericView
         {
            await _canvasBuilder.BuildAsync<T>();
+            //HA! So I need to pass data/Initializable reffs in InitViewsAsync, so How can I use this method?
+        }
+
+        public void CloseWindow(GenericView view)
+        {
+            GameObject.Destroy(view.gameObject);
         }
 
         //Pass update call to all views. Updates Data that needs to Update by frame/time

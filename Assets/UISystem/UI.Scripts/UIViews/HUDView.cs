@@ -1,4 +1,5 @@
-﻿using UnityWeld.Binding;
+﻿using UnityEngine;
+using UnityWeld.Binding;
 
 namespace myUi
 {
@@ -49,8 +50,9 @@ namespace myUi
             DataText = _UITestDataClass.VeryImportantData.ToString();
         }
 
-        //OnMenu1 open
-        //OnMenu2 Open
-        //OnBackPressed -> Exit it log
+        public override void OnBackPressed()
+        {
+            Debug.Log("Closing View");
+        }
     }
 }

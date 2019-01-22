@@ -7,5 +7,6 @@ namespace myUi
         Task InitViewsAsync();
         Task ShowWindowAsync<T>() where T : GenericView;
         void UpdateViews(float iDeltaTime);
+        void CloseWindow(GenericView window);
     }
 }
