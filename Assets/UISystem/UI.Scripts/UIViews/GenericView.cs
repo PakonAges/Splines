@@ -2,18 +2,23 @@
 using UnityEngine;
 using UnityWeld.Binding;
 
-[Binding]
-public abstract class GenericView : MonoBehaviour, IWindow, INotifyPropertyChanged
+namespace myUi
 {
-    public event PropertyChangedEventHandler PropertyChanged;
-
-    internal void OnPropertyChanged(string propertyName)
+    [Binding]
+    public abstract class GenericView : MonoBehaviour, IWindow, INotifyPropertyChanged
     {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
+        public event PropertyChangedEventHandler PropertyChanged;
 
-    public virtual void OnWrapped()
-    {
-        //Something like Awake / Start
+        internal void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public abstract void ViewUpdate(float iDeltaTime);
+
+        public virtual void OnWrapped()
+        {
+            //Something like Awake / Start
+        }
     }
 }

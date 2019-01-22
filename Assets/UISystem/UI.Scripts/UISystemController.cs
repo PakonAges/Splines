@@ -1,27 +1,28 @@
 ﻿using UnityEngine;
 using Zenject;
 
-public class UISystemController : MonoBehaviour
+namespace myUi
 {
-    IUiManager _uiManager;
-
-    [Inject]
-    public void Construct(IUiManager uiManager)
+    public class UISystemController : MonoBehaviour
     {
-        _uiManager = uiManager;
-        _uiManager.InitViewsAsync();
+        IUiManager _uiManager;
+
+        [Inject]
+        public void Construct(IUiManager uiManager)
+        {
+            _uiManager = uiManager;
+        }
+
+        void Start()
+        {
+            _uiManager.InitViewsAsync();
+            //_uiManager.ShowWindowAsync<HUDView>();
+        }
+
+        void FixedUpdate()
+        {
+            _uiManager.UpdateViews(Time.deltaTime * 10);
+        }
     }
 
-    void Start()
-    {
-        //_uiManager.ShowWindowAsync(ViewType.HUDView);
-    }
-}
-
-public enum ViewType
-{
-    Invalid,
-    HUDView,
-    MenuView,
-    SubMenuView
 }

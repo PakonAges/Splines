@@ -1,7 +1,11 @@
 ﻿using System.Threading.Tasks;
 
-public interface IUiManager
+namespace myUi
 {
-    Task InitViewsAsync();
-    Task ShowWindowAsync<T>() where T : GenericView;
+    public interface IUiManager
+    {
+        Task InitViewsAsync();
+        Task ShowWindowAsync<T>() where T : GenericView;
+        void UpdateViews(float iDeltaTime);
+    }
 }

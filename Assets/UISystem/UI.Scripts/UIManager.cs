@@ -3,39 +3,57 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
-public class UIManager : IUiManager
-{ 
-    readonly CanvasBuilder _canvasBuilder;
-    CanvasFacade<HUDView> _HUDView;
+namespace myUi
+{
+    public class UIManager : IUiManager
+    { 
+        readonly CanvasBuilder _canvasBuilder;
+        readonly UITestDataClass _uITestDataClass;
+        CanvasFacade<HUDView> _HUDView;
 
-    public UIManager(   CanvasBuilder canvasBuilder)
-    {
-        _canvasBuilder = canvasBuilder;
+        public UIManager(   CanvasBuilder canvasBuilder,
+                            UITestDataClass uITestDataClass)
+        {
+            _canvasBuilder = canvasBuilder;
+            _uITestDataClass = uITestDataClass;
+        }
+
+        public async Task InitViewsAsync()
+        {
+            try
+            {
+                _HUDView = await _canvasBuilder.BuildAsync<HUDView>();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
+
+            _HUDView.CanvasMV.Initialize(_uITestDataClass);
+        }
+
+        public async Task ShowWindowAsync<T>() where T : GenericView
+        {
+           await _canvasBuilder.BuildAsync<T>();
+        }
+
+        public void UpdateViews(float iDeltaTime)
+        {
+            _HUDView.Update(iDeltaTime);
+        }
+
+        //public async Task ShowWindowAsync(ViewType type)
+        //{
+        //    try
+        //    {
+        //        var Window = await getWindowPrefabAsync(type);
+        //        GameObject.Instantiate(Window);
+        //        _HUDViewModel._HUDView = (HUDView)Window.GetComponent<GenericView>();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Debug.LogError(e);
+        //    }
+        //}
     }
-
-    public async Task InitViewsAsync()
-    {
-        _HUDView = await _canvasBuilder.BuildAsync<HUDView>();
-        _HUDView.CanvasMV.Initialize(/* data */);
-        //Sorting Order
-    }
-
-    public Task ShowWindowAsync<T>() where T : GenericView
-    {
-        _canvasBuilder.BuildAsync<T>();
-    }
-
-    //public async Task ShowWindowAsync(ViewType type)
-    //{
-    //    try
-    //    {
-    //        var Window = await getWindowPrefabAsync(type);
-    //        GameObject.Instantiate(Window);
-    //        _HUDViewModel._HUDView = (HUDView)Window.GetComponent<GenericView>();
-    //    }
-    //    catch (Exception e)
-    //    {
-    //        Debug.LogError(e);
-    //    }
-    //}
 }

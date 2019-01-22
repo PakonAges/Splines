@@ -1,41 +1,51 @@
 ﻿using UnityWeld.Binding;
 
-[Binding]
-public class HUDView : GenericView
+namespace myUi
 {
-    string _dataText;
-
     [Binding]
-    public string DataText
+    public class HUDView : GenericView
     {
-        get { return _dataText; }
-        set
+        private UITestDataClass _UITestDataClass;
+        string _dataText;
+
+        [Binding]
+        public string DataText
         {
-            if (_dataText == value)
+            get { return _dataText; }
+            set
             {
-                return;
+                if (_dataText == value)
+                {
+                    return;
+                }
+
+                _dataText = value;
+                OnPropertyChanged("DataText");
             }
 
-            _dataText = value;
-            OnPropertyChanged("DataText");
         }
 
+        public void Initialize(UITestDataClass DataClass)
+        {
+            _UITestDataClass = DataClass;
+            ViewUpdate(0f);
+        }
+
+        public override void ViewUpdate(float iDeltaTime)
+        {
+            DataText = _UITestDataClass.VeryImportantData.ToString();
+        }
+
+        //We need to inject Data Source to change the Text!
+
+        //SO! Do I need to Reffenerce Data Class here? HUD in Data Class
+        //1. Data class doesn't need to Know anything about HUD
+        //2. Something has to inform that Data has changed! and -> Change property here
+        //3. So "Something" needs to know what is DataClass data and if that is changed -> give a command to HUD (change it's property).
+
+
+        //OnMenu1 open
+        //OnMenu2 Open
+        //OnBackPressed -> Exit it log
     }
-
-    public void Initialize()
-    {
-       //pass dependencies
-    }
-
-    //We need to inject Data Source to change the Text!
-
-    //SO! Do I need to Reffenerce Data Class here? HUD in Data Class
-    //1. Data class doesn't need to Know anything about HUD
-    //2. Something has to inform that Data has changed! and -> Change property here
-    //3. So "Something" needs to know what is DataClass data and if that is changed -> give a command to HUD (change it's property).
-
-
-    //OnMenu1 open
-    //OnMenu2 Open
-    //OnBackPressed -> Exit it log
 }

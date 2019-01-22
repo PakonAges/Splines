@@ -602,5 +602,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewAdapterTypeName: 
   viewAdapterOptions: {fileID: 0}
-  viewModelPropertyName: HUDView.DataText
+  viewModelPropertyName: myUi.HUDView.DataText
   viewPropertyName: UnityEngine.UI.Text.text

@@ -1,28 +1,31 @@
 ﻿using System.Threading.Tasks;
 using UnityEngine;
 
-public class CanvasBuilder
+namespace myUi
 {
-    readonly IUiPrefabProvider _prefabProvider;
-
-    public CanvasBuilder(IUiPrefabProvider uiPrefabProvider)
+    public class CanvasBuilder
     {
-        _prefabProvider = uiPrefabProvider;
-    }
+        readonly IUiPrefabProvider _prefabProvider;
 
-    public async Task<CanvasFacade<T>> BuildAsync<T>() where T : GenericView
-    {
-        var _canvasPrefab = await _prefabProvider.GetPrefabAsync<T>();
-
-        if (_canvasPrefab == null)
+        public CanvasBuilder(IUiPrefabProvider uiPrefabProvider)
         {
-            Debug.LogErrorFormat("Can't find UI prefab {0}");
-            return null;
+            _prefabProvider = uiPrefabProvider;
         }
 
-        var _canvasGo = GameObject.Instantiate(_canvasPrefab);
-        _canvasGo.name = _canvasPrefab.name;
+        public async Task<CanvasFacade<T>> BuildAsync<T>() where T : GenericView
+        {
+            var _canvasPrefab = await _prefabProvider.GetPrefabAsync<T>();
 
-        return new CanvasFacade<T>(_canvasGo);
+            if (_canvasPrefab == null)
+            {
+                Debug.LogErrorFormat("Can't find UI prefab {0}");
+                return null;
+            }
+
+            var _canvasGo = GameObject.Instantiate(_canvasPrefab);
+            _canvasGo.name = _canvasPrefab.name;
+
+            return new CanvasFacade<T>(_canvasGo);
+        }
     }
 }

@@ -1,22 +1,25 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-public class AdressablePrefabProvider : IUiPrefabProvider
+namespace myUi
 {
-    public async Task<GameObject> GetPrefabAsync(ViewType type)
+    public class AdressablePrefabProvider : IUiPrefabProvider
     {
-        if (type == ViewType.Invalid)
+        public async Task<GameObject> GetPrefabAsync<T>() where T : GenericView
         {
-            Debug.LogError("Trying to get Invalid UI Prefab");
-            return null;
-        }
-        else
-        {
-            var window = await Addressables.LoadAsset<GameObject>(type.ToString()) as GameObject;
-            return window;
-        }
+            try
+            {
+                var window = await Addressables.LoadAsset<GameObject>(typeof(T).Name.ToString()) as GameObject;
+                return window;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+                return null;
+            }
 
-        throw new System.NotImplementedException();
+        }
     }
 }

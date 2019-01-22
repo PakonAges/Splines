@@ -1,4 +1,5 @@
 using Zenject;
+using myUi;
 
 public class UISceneInstaller : MonoInstaller
 {
