@@ -3,6 +3,9 @@ using Zenject;
 
 namespace myUi
 {
+    /// <summary>
+    /// Root object for UI System
+    /// </summary>
     public class UISystemController : MonoBehaviour
     {
         IUiManager _uiManager;

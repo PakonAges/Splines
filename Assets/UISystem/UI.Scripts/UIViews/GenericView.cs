@@ -7,6 +7,7 @@ namespace myUi
     [Binding]
     public abstract class GenericView : MonoBehaviour, IWindow, INotifyPropertyChanged
     {
+        internal IUiManager _uiManager;
         public event PropertyChangedEventHandler PropertyChanged;
 
         internal void OnPropertyChanged(string propertyName)

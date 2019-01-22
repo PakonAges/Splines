@@ -78,7 +78,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: OPEN WINDOW
+  m_Text: 'OPEN WINDOW
+
+    SHOW OVER OTHERS'
 --- !u!1 &645504823816353588
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +159,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: OPEN WINDOW
+  m_Text: 'OPEN WINDOW
+
+    HIDE ALL OTHERS'
 --- !u!1 &1687110701519348357
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,6 +174,7 @@ GameObject:
   - component: {fileID: 5231957669815808091}
   - component: {fileID: 7291670127746376462}
   - component: {fileID: 3604656104196416275}
+  - component: {fileID: 890795410274268492}
   m_Layer: 5
   m_Name: OpenMenu_DontHideOthers
   m_TagString: Untagged
@@ -276,6 +281,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &890795410274268492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687110701519348357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1360956885, guid: 37f8d8a5bbb63f0408b99d56763ce79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewModelMethodName: myUi.HUDView.OnShowMenuHideOthersBtnClicked
+  viewEventName: UnityEngine.UI.Button.onClick
 --- !u!1 &3964733958421277648
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +307,7 @@ GameObject:
   - component: {fileID: 184220432793337451}
   - component: {fileID: 7999956589046278892}
   - component: {fileID: 2667557642097607655}
+  - component: {fileID: 4615112214285139358}
   m_Layer: 5
   m_Name: OpenMenu_HidePrevious
   m_TagString: Untagged
@@ -394,6 +414,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &4615112214285139358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964733958421277648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1360956885, guid: 37f8d8a5bbb63f0408b99d56763ce79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewModelMethodName: myUi.HUDView.OnShowMenuOverOthersBtnClicked
+  viewEventName: UnityEngine.UI.Button.onClick
 --- !u!1 &6376512339977291928
 GameObject:
   m_ObjectHideFlags: 0

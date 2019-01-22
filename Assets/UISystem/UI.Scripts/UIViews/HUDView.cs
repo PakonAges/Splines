@@ -25,24 +25,29 @@ namespace myUi
 
         }
 
-        public void Initialize(UITestDataClass DataClass)
+        [Binding]
+        public void OnShowMenuHideOthersBtnClicked()
         {
+            _uiManager.ShowWindowAsync<MenuView>();
+        }
+
+        [Binding]
+        public void OnShowMenuOverOthersBtnClicked()
+        {
+            _uiManager.ShowWindowAsync<MenuView>();
+        }
+
+        public void Initialize( IUiManager uiManager,
+                                UITestDataClass DataClass)
+        {
+            _uiManager = uiManager;
             _UITestDataClass = DataClass;
-            ViewUpdate(0f);
         }
 
         public override void ViewUpdate(float iDeltaTime)
         {
             DataText = _UITestDataClass.VeryImportantData.ToString();
         }
-
-        //We need to inject Data Source to change the Text!
-
-        //SO! Do I need to Reffenerce Data Class here? HUD in Data Class
-        //1. Data class doesn't need to Know anything about HUD
-        //2. Something has to inform that Data has changed! and -> Change property here
-        //3. So "Something" needs to know what is DataClass data and if that is changed -> give a command to HUD (change it's property).
-
 
         //OnMenu1 open
         //OnMenu2 Open
