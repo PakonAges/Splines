@@ -10,28 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Default Local Group
+  m_Name: DiUi
   m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
+  m_GroupName: DiUi
   m_Data:
     m_SerializedData: []
-  m_GUID: cb372b397aa1c384a9694ed15f66d5dd
+  m_GUID: 9ce576168c0e85946a0dc7857897b437
   m_SerializeEntries:
-  - m_GUID: 2fdb8f8f20665e440914edc5e46a15b4
-    m_Address: HUDView
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 3aa76a52d950dab4a8692d5fc5852980
-    m_Address: MenuView
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 7fa5f5e81ec1a6e429b4dadfaa0ea629
-    m_Address: SubMenuView
+  - m_GUID: a17bab8b23f7f6d46860a120033b8703
+    m_Address: DiUiHUD
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f46fbe7dab9e13b40add24d79f5820c4, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 2b53df388dc700743b53f79c49e38db1, type: 2}
-    - {fileID: 11400000, guid: 686a58d2b57c28241852708d9c24c8ce, type: 2}
+    - {fileID: 11400000, guid: 38a3bcf1029cfef458573a088e54e7e1, type: 2}
+    - {fileID: 11400000, guid: 89ad17a33a19bcb448e6892e3dc27fed, type: 2}
