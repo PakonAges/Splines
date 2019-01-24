@@ -1,18 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityWeld.Binding;
 
-public class DiUiHUDView : MonoBehaviour
+namespace DiUi
 {
-    // Start is called before the first frame update
-    void Start()
+    [Binding]
+    public class DiUiHUDView : UiView
     {
-        
-    }
+        private DiUiHUDModelView _myModelView;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [Binding]
+        public int RealTimeDate { get; set; }
+
+        [Binding]
+        public int EventData { get; set; }
+
+        [Binding]
+        public void OnControlCubeBtnClicked()
+        {
+            _myModelView.ControllCube();
+        }
     }
 }

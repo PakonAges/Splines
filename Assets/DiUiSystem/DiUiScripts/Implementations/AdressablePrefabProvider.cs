@@ -7,7 +7,7 @@ namespace DiUi
 {
     public class AdressablePrefabProvider : IDiUiPrefabProvider
     {
-        public async Task<GameObject> GetPrefabAsync<T>() /* where T : GenericView*/
+        public async Task<GameObject> GetWindowPrefab<T>() where T : IDiView
         {
             try
             {

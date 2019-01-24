@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace DiUi
 {
@@ -7,8 +8,17 @@ namespace DiUi
         public GameObject DataCube;
         public KeyCode CubeControllKey = KeyCode.G;
 
+        IDiUiManager _uiManager;
+
+        [Inject]
+        public void Construct(IDiUiManager uiManager)
+        {
+            _uiManager = uiManager;
+        }
+
         void Start()
         {
+            //_uiManager.ShowWindow<DiUiHUDView>();
             Instantiate(DataCube);
         }
 

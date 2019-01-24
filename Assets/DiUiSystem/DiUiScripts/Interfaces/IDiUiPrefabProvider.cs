@@ -5,6 +5,6 @@ namespace DiUi
 {
     public interface IDiUiPrefabProvider
     {
-        //Task<GameObject> GetWindowPrefab();
+        Task<GameObject> GetWindowPrefab<T>() where T : IDiView;
     }
 }

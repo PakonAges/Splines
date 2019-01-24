@@ -10,7 +10,9 @@ namespace DiUi
 
         public override void InstallBindings()
         {
+            Container.Bind<IDiUiManager>().To<DiUiManager>().AsSingle();
             BindPrefabProviders();
+            BindUIViewModels();
         }
 
 
@@ -24,13 +26,18 @@ namespace DiUi
                 break;
 
                 case UIPrefabProviderType.Inspector:
-                Container.Bind<IDiUiPrefabProvider>().To<InspectorPrefabProvider>().FromComponentInHierarchy().AsSingle();
+                //Container.Bind<IDiUiPrefabProvider>().To<InspectorPrefabProvider>().FromComponentInHierarchy().AsSingle();
                 break;
 
                 default:
                 Container.Bind<IDiUiPrefabProvider>().To<AdressablePrefabProvider>().AsSingle();
                 break;
             }
+        }
+
+        void BindUIViewModels()
+        {
+            Container.BindFactory<DiUiHUDModelView, DiUiHUDModelView.Factory>();
         }
 
         public enum UIPrefabProviderType
