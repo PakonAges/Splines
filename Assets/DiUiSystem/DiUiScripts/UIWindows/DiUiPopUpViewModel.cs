@@ -7,7 +7,7 @@ namespace DiUi
     {
         internal override IDiView IView { get; set; }
         DiUiPopUpView _view;
-        public DiUiPopUpView MyView
+        public DiUiPopUpView View
         {
             get { return IView as DiUiPopUpView; }
             set { _view = value; }
@@ -20,7 +20,7 @@ namespace DiUi
 
         public void CloseView()
         {
-            GameObject.Destroy(_view.gameObject);
+            GameObject.Destroy(View.gameObject);
         }
     }
 }

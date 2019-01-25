@@ -5,7 +5,13 @@ namespace DiUi
     [Binding]
     public class DiUiPopUpView : UiView<DiUiPopUpView>
     {
-        public DiUiPopUpViewModel ViewModel { private get; set; }
+        internal override IDiViewModel IViewModel { get; set; }
+        DiUiPopUpViewModel _viewModel;
+        public DiUiPopUpViewModel ViewModel
+        {
+            get { return IViewModel as DiUiPopUpViewModel; }
+            set { _viewModel = value; }
+        }
 
         [Binding]
         public void OnClose()

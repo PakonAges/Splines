@@ -6,7 +6,13 @@ namespace DiUi
     [Binding]
     public class DiUiHUDView : UiView<DiUiHUDView>
     {
-        public DiUiHUDViewModel ViewModel { private get; set; }
+        internal override IDiViewModel IViewModel { get; set; }
+        DiUiHUDViewModel _viewModel;
+        public DiUiHUDViewModel ViewModel
+        {
+            get { return IViewModel as DiUiHUDViewModel; }
+            set { _viewModel = value; }
+        }
 
         string _realTimeData;
 

@@ -26,7 +26,7 @@ namespace DiUi
         }
     }
 
-    public abstract class UiViewModel
+    public abstract class UiViewModel : IDiViewModel
     {
         internal IDiUiPrefabProvider _prefabProvider;
         internal abstract IDiView IView { get; set; }

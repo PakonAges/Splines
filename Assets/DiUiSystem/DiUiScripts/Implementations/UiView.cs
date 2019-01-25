@@ -14,7 +14,6 @@ namespace DiUi
     public abstract class UiView : MonoBehaviour, IDiView, INotifyPropertyChanged
     {
         internal abstract IDiViewModel IViewModel { get; set; }
-        //internal UiViewModel _myViewModel;
         public event PropertyChangedEventHandler PropertyChanged;
 
         internal void OnPropertyChanged(string propertyName)
@@ -24,9 +23,9 @@ namespace DiUi
 
         public abstract void OnBackPressed();
 
-        public virtual void SetViewModel<T>(T ViewModel) where T : UiViewModel
+        public virtual void SetViewModel(IDiViewModel viewModel)
         {
-            _myViewModel = ViewModel;
+            IViewModel = viewModel;
         }
     }
 }

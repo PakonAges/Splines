@@ -14,7 +14,7 @@ namespace DiUi
         internal override IDiView IView { get; set; }
 
         DiUiHUDView _view;
-        public DiUiHUDView MyView
+        public DiUiHUDView View
         {
             get { return IView as DiUiHUDView; }
             set { _view = value; }
@@ -57,17 +57,24 @@ namespace DiUi
 
         void UpdateRealTimeData()
         {
-            MyView.UpdateRealTimeData(_dataProvider.CubePosition);
+            View.UpdateRealTimeData(_dataProvider.CubePosition);
         }
 
         void UpdateEventData(CubeMovementSignal signal)
         {
-            MyView.UpdateEventTimeData(signal.Direction);
+            View.UpdateEventTimeData(signal.Direction);
         }
 
         public async void ShowPopup()
         {
-            await _popUpVM.ShowViewAsync();
+            try
+            {
+                await _popUpVM.ShowViewAsync();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
         }
     }
 }
