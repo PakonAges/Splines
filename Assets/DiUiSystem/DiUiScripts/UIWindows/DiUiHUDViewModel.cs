@@ -5,7 +5,7 @@ using Zenject;
 
 namespace DiUi
 {
-    public class DiUiHUDViewModel : UiViewModel, IDiViewModel, ITickable, IInitializable, IDisposable
+    public class DiUiHUDViewModel : UiViewModel<DiUiHUDViewModel>, IDiViewModel, ITickable, IInitializable, IDisposable
     {
         readonly SignalBus _signalBus;
         readonly ICubeDataProvider _dataProvider;

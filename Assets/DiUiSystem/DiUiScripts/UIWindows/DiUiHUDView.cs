@@ -5,7 +5,7 @@ using UnityWeld.Binding;
 namespace DiUi
 {
     [Binding]
-    public class DiUiHUDView : UiView
+    public class DiUiHUDView : UiView<DiUiHUDView>
     {
         public DiUiHUDViewModel ViewModel { private get; set; }
 

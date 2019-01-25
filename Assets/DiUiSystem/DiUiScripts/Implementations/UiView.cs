@@ -3,6 +3,14 @@ using UnityEngine;
 
 namespace DiUi
 {
+    public abstract class UiView<T> : UiView where T : UiView<T>
+    {
+        public override void OnBackPressed()
+        {
+            //default implementation -> destroy?
+        }
+    }
+
     public abstract class UiView : MonoBehaviour, IDiView, INotifyPropertyChanged
     {
         //public virtual void InitializeView(DiUiHUDViewModel ViewModel)
@@ -10,10 +18,7 @@ namespace DiUi
         //    //Do Initialization here
         //}
 
-        public virtual void OnBackPressed()
-        {
-            //Close Window by default
-        }
+        public abstract void OnBackPressed();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -22,4 +27,5 @@ namespace DiUi
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
+
 }

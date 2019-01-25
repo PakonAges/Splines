@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DiUi
 {
-    public class DiUiPopUpViewModel : UiViewModel, IDiViewModel
+    public class DiUiPopUpViewModel : UiViewModel<DiUiPopUpViewModel>, IDiViewModel
     {
         DiUiPopUpView _myView;                          //Same member in all ViewModels but type if sub-type
 

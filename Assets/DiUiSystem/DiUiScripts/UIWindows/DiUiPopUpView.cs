@@ -4,7 +4,7 @@ using UnityWeld.Binding;
 namespace DiUi
 {
     [Binding]
-    public class DiUiPopUpView : UiView
+    public class DiUiPopUpView : UiView<DiUiPopUpView>
     {
         public DiUiPopUpViewModel ViewModel { private get; set; }
 

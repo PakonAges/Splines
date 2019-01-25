@@ -1,6 +1,6 @@
 ﻿namespace DiUi
 {
-    public abstract class UiViewModel
+    public abstract class UiViewModel<T> : UiViewModel where T : UiViewModel<T>
     {
         internal IDiUiPrefabProvider _prefabProvider;
 
@@ -8,5 +8,10 @@
         {
             _prefabProvider = prefabProvider;
         }
+    }
+
+    public abstract class UiViewModel
+    {
+
     }
 }
