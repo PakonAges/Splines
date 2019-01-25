@@ -10,7 +10,15 @@ namespace DiUi
         readonly SignalBus _signalBus;
         readonly ICubeDataProvider _dataProvider;
         readonly DiUiPopUpViewModel _popUpVM;
-        new DiUiHUDView _myView;
+
+        internal override IDiView IView { get; set; }
+
+        DiUiHUDView _view;
+        public DiUiHUDView MyView
+        {
+            get { return IView as DiUiHUDView; }
+            set { _view = value; }
+        }
 
         public DiUiHUDViewModel(SignalBus signalBus,
                                 IDiUiPrefabProvider prefabProvider,
@@ -41,7 +49,7 @@ namespace DiUi
         //Update real-time Data
         public void Tick()
         {
-            if (_myView != null)
+            if (IView != null)
             {
                 UpdateRealTimeData();
             }
@@ -49,26 +57,17 @@ namespace DiUi
 
         void UpdateRealTimeData()
         {
-            _myView.UpdateRealTimeData(_dataProvider.CubePosition);
+            MyView.UpdateRealTimeData(_dataProvider.CubePosition);
         }
 
         void UpdateEventData(CubeMovementSignal signal)
         {
-            _myView.UpdateEventTimeData(signal.Direction);
+            MyView.UpdateEventTimeData(signal.Direction);
         }
 
         public async void ShowPopup()
         {
             await _popUpVM.ShowViewAsync();
         }
-
-        //public async Task ShowViewAsync()
-        //{
-        //    var Prefab = await _prefabProvider.GetWindowPrefab(this);
-        //    var ViewGo = GameObject.Instantiate(Prefab);
-        //    _myView = ViewGo.GetComponent<DiUiHUDView>();
-        //    _myView.ViewModel = this;
-        //}
-
     }
 }

@@ -12,16 +12,23 @@ namespace DiUi
 
         public virtual async Task ShowViewAsync()
         {
-            var Prefab = await _prefabProvider.GetWindowPrefab<T>();
-            var ViewGo = GameObject.Instantiate(Prefab);
-            _myView = ViewGo.GetComponent<UiView>();
-            _myView.SetViewModel(this);
+            try
+            {
+                var Prefab = await _prefabProvider.GetWindowPrefab<T>();
+                var ViewGo = GameObject.Instantiate(Prefab);
+                IView = ViewGo.GetComponent<IDiView>();
+                IView.SetViewModel(this);
+            }
+            catch (System.Exception  e)
+            {
+                Debug.LogError(e);
+            }
         }
     }
 
     public abstract class UiViewModel
     {
         internal IDiUiPrefabProvider _prefabProvider;
-        internal UiView _myView;
+        internal abstract IDiView IView { get; set; }
     }
 }

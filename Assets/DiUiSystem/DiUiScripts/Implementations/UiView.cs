@@ -13,7 +13,8 @@ namespace DiUi
 
     public abstract class UiView : MonoBehaviour, IDiView, INotifyPropertyChanged
     {
-        internal UiViewModel _myViewModel;
+        internal abstract IDiViewModel IViewModel { get; set; }
+        //internal UiViewModel _myViewModel;
         public event PropertyChangedEventHandler PropertyChanged;
 
         internal void OnPropertyChanged(string propertyName)
@@ -28,5 +29,4 @@ namespace DiUi
             _myViewModel = ViewModel;
         }
     }
-
 }

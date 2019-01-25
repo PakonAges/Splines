@@ -2,6 +2,6 @@
 {
     public interface IDiView
     {
-        //void SetViewModel<IDiViewModel>();
+        void SetViewModel<T>(T ViewModel) where T : UiViewModel;
     }
 }

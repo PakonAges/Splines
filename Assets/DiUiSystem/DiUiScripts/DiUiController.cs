@@ -25,7 +25,15 @@ namespace DiUi
 
         async Task Start()
         {
-            await _HUD.ShowViewAsync();
+            try
+            {
+                await _HUD.ShowViewAsync();
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError(e);
+            }
+
             _cubeData.MyCube = _cubeFactory.Create();
         }
 
