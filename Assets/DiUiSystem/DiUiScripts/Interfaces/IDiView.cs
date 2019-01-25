@@ -2,6 +2,6 @@
 {
     public interface IDiView
     {
-        //void InitializeView(IDiViewModel ViewModel);
+        //void SetViewModel<IDiViewModel>();
     }
 }

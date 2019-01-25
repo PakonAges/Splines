@@ -10,8 +10,7 @@ namespace DiUi
         readonly SignalBus _signalBus;
         readonly ICubeDataProvider _dataProvider;
         readonly DiUiPopUpViewModel _popUpVM;
-
-        DiUiHUDView _myView;
+        new DiUiHUDView _myView;
 
         public DiUiHUDViewModel(SignalBus signalBus,
                                 IDiUiPrefabProvider prefabProvider,
@@ -63,13 +62,13 @@ namespace DiUi
             await _popUpVM.ShowViewAsync();
         }
 
-        public async Task ShowViewAsync()
-        {
-            var Prefab = await _prefabProvider.GetWindowPrefab(this);
-            var ViewGo = GameObject.Instantiate(Prefab);
-            _myView = ViewGo.GetComponent<DiUiHUDView>();
-            _myView.ViewModel = this;
-        }
+        //public async Task ShowViewAsync()
+        //{
+        //    var Prefab = await _prefabProvider.GetWindowPrefab(this);
+        //    var ViewGo = GameObject.Instantiate(Prefab);
+        //    _myView = ViewGo.GetComponent<DiUiHUDView>();
+        //    _myView.ViewModel = this;
+        //}
 
     }
 }
