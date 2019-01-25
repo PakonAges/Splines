@@ -3,22 +3,12 @@ using UnityEngine;
 
 namespace DiUi
 {
-    public class UiView : MonoBehaviour, IDiView, INotifyPropertyChanged
+    public abstract class UiView : MonoBehaviour, IDiView, INotifyPropertyChanged
     {
-        public virtual void InitializeView()
-        {
-            //Do Initialization here
-        }
-
-        public virtual void UpdateRealTimeDate()
-        {
-
-        }
-
-        public virtual void UpdateEventData()
-        {
-
-        }
+        //public virtual void InitializeView(DiUiHUDViewModel ViewModel)
+        //{
+        //    //Do Initialization here
+        //}
 
         public virtual void OnBackPressed()
         {

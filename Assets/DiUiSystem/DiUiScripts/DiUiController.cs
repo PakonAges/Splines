@@ -10,17 +10,20 @@ namespace DiUi
         public KeyCode CubeControllKey = KeyCode.G;
 
         DiUiHUDViewModel _HUD;
+        ICubeDataProvider _cubeData;
 
         [Inject]
-        public void Construct(DiUiHUDViewModel HUD)
+        public void Construct(  DiUiHUDViewModel HUD,
+                                ICubeDataProvider cubeDataProvider)
         {
             _HUD = HUD;
+            _cubeData = cubeDataProvider;
         }
 
         async Task Start()
         {
             await _HUD.ShowViewAsync();
-            Instantiate(DataCube);
+            _cubeData.MyCube = Instantiate(DataCube).GetComponent<DataCube>();
         }
 
         void Update()

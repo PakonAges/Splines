@@ -7,12 +7,14 @@ namespace DiUi
     public class DiUiHUDViewModel : IDiViewModel, ITickable
     {
         readonly IDiUiPrefabProvider _prefabProvider;
-        UiView _myView;
+        readonly ICubeDataProvider _dataProvider;
+        DiUiHUDView _myView;
 
-        public DiUiHUDViewModel(IDiUiPrefabProvider prefabProvider)
+        public DiUiHUDViewModel(IDiUiPrefabProvider prefabProvider,
+                                ICubeDataProvider dataProvider)
         {
             _prefabProvider = prefabProvider;
-            //Data class
+            _dataProvider = dataProvider;
         }
 
         public void ControllCube()
@@ -22,14 +24,17 @@ namespace DiUi
 
         public void Tick()
         {
-            _myView.UpdateRealTimeDate();
+            if (_myView != null)
+            {
+                _myView.UpdateRealTimeData(_dataProvider.CubePosition);
+            }
         }
 
         public async Task ShowViewAsync()
         {
             var Prefab = await _prefabProvider.GetWindowPrefab(this);
             var ViewGo = GameObject.Instantiate(Prefab);
-            _myView = ViewGo.GetComponent<UiView>();
+            _myView = ViewGo.GetComponent<DiUiHUDView>();
             //show Data
         }
     }

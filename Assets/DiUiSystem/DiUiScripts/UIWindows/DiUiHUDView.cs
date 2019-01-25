@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using UnityWeld.Binding;
 
 namespace DiUi
@@ -6,10 +7,30 @@ namespace DiUi
     [Binding]
     public class DiUiHUDView : UiView
     {
-        private DiUiHUDViewModel _myModelView;
+        //private DiUiHUDViewModel _myModelView;
+
+        //public override void InitializeView(DiUiViewModel ViewModel)
+        //{
+        //    _myModelView = ViewModel;
+        //}
+        string _realTimeData;
 
         [Binding]
-        public int RealTimeDate { get; set; }
+        public string RealTimeData
+        {
+            get { return _realTimeData; }
+            set
+            {
+                if (_realTimeData == value)
+                {
+                    return;
+                }
+
+                _realTimeData = value;
+                OnPropertyChanged("RealTimeData");
+            }
+
+        }
 
         [Binding]
         public int EventData { get; set; }
@@ -17,7 +38,12 @@ namespace DiUi
         [Binding]
         public void OnControlCubeBtnClicked()
         {
-            _myModelView.ControllCube();
+            //_myModelView.ControllCube();
+        }
+
+        public void UpdateRealTimeData(Vector3 position)
+        {
+            RealTimeData = "Cube Position (" + position.x + ";" + position.y + ";" + position.z + ")";
         }
     }
 }

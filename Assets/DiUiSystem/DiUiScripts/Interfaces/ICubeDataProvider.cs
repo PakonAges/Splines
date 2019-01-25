@@ -1,9 +1,11 @@
-﻿namespace DiUi
+﻿using UnityEngine;
+
+namespace DiUi
 {
-    public interface ICubeData
+    public interface ICubeDataProvider
     {
-        //Cube
-        //MoveCube
+        DataCube MyCube { set; }
+        Vector3 CubePosition { get; }
 
         //Get Cube Position = realtimeData
         //Get Cube Movement Direction = Event Update Data

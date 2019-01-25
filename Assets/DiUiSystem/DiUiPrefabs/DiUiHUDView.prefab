@@ -32,10 +32,10 @@ RectTransform:
   m_Father: {fileID: 6488486379936911436}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -50}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7247447428991544577
 CanvasRenderer:
@@ -193,10 +193,10 @@ RectTransform:
   m_Father: {fileID: 6488486379936911436}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -50}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1822985155404035723
 CanvasRenderer:
@@ -254,8 +254,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -333,9 +333,9 @@ MonoBehaviour:
   m_Script: {fileID: -1670825535, guid: 37f8d8a5bbb63f0408b99d56763ce79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewAdapterTypeName: UnityWeld.Binding.Adapters.IntToStringAdapter
+  viewAdapterTypeName: 
   viewAdapterOptions: {fileID: 0}
-  viewModelPropertyName: DiUi.DiUiHUDView.RealTimeDate
+  viewModelPropertyName: DiUi.DiUiHUDView.RealTimeData
   viewPropertyName: TMPro.TextMeshProUGUI.text
 --- !u!1 &2111229264229531350
 GameObject:
@@ -532,8 +532,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 220, y: -70}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchoredPosition: {x: 220, y: -60}
+  m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3636594171195668631
 CanvasRenderer:
@@ -576,10 +576,10 @@ RectTransform:
   m_Father: {fileID: 7925070727622957116}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -50}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5380797586708938908
 CanvasRenderer:
@@ -637,8 +637,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -885,10 +885,10 @@ RectTransform:
   m_Father: {fileID: 7925070727622957116}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -50}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8033410106881953309
 CanvasRenderer:
@@ -1027,7 +1027,7 @@ GameObject:
   - component: {fileID: 7726938848029554609}
   - component: {fileID: 3663418164012159685}
   m_Layer: 5
-  m_Name: DiUiHUD
+  m_Name: DiUiHUDView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1162,8 +1162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 220, y: -170}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchoredPosition: {x: 220, y: -150}
+  m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5267527676245740771
 CanvasRenderer:

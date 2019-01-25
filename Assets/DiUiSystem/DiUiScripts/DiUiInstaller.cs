@@ -12,6 +12,7 @@ namespace DiUi
         {
             BindPrefabProviders();
             BindUIViewModels();
+            Container.Bind<ICubeDataProvider>().To<CubeDataProvider>().AsSingle();
         }
 
         void BindPrefabProviders()
@@ -34,7 +35,8 @@ namespace DiUi
 
         void BindUIViewModels()
         {
-            Container.Bind<DiUiHUDViewModel>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DiUiHUDViewModel>().AsSingle();
+            //Container.Bind<DiUiHUDViewModel>().AsSingle();
         }
 
         public enum UIPrefabProviderType
