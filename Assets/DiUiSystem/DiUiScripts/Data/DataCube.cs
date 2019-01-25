@@ -10,7 +10,6 @@ namespace DiUi
 
         Material _material;
         Color _origColor;
-        bool _isMoving = false;
         Tweener _movementTweener;
         Tweener _colorTweener;
 
@@ -19,7 +18,7 @@ namespace DiUi
             _material = gameObject.GetComponent<MeshRenderer>().material;
             _origColor = _material.color;
             StartMovement();
-            _isMoving = true;
+
         }
 
         void StartMovement()

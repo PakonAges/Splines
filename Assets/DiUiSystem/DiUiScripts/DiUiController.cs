@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Threading.Tasks;
+using UnityEngine;
 using Zenject;
 
 namespace DiUi
@@ -8,17 +9,17 @@ namespace DiUi
         public GameObject DataCube;
         public KeyCode CubeControllKey = KeyCode.G;
 
-        IDiUiManager _uiManager;
+        DiUiHUDViewModel _HUD;
 
         [Inject]
-        public void Construct(IDiUiManager uiManager)
+        public void Construct(DiUiHUDViewModel HUD)
         {
-            _uiManager = uiManager;
+            _HUD = HUD;
         }
 
-        void Start()
+        async Task Start()
         {
-            //_uiManager.ShowWindow<DiUiHUDView>();
+            await _HUD.ShowViewAsync();
             Instantiate(DataCube);
         }
 
@@ -27,6 +28,7 @@ namespace DiUi
             if (Input.GetKeyDown(CubeControllKey))
             {
                 DataCube.GetComponent<DataCube>().ControlTweener();
+                Debug.Log("Cube control Commad pass");
             }
         }
     }

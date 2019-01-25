@@ -10,12 +10,9 @@ namespace DiUi
 
         public override void InstallBindings()
         {
-            Container.Bind<IDiUiManager>().To<DiUiManager>().AsSingle();
             BindPrefabProviders();
             BindUIViewModels();
         }
-
-
 
         void BindPrefabProviders()
         {
@@ -37,7 +34,7 @@ namespace DiUi
 
         void BindUIViewModels()
         {
-            Container.BindFactory<DiUiHUDModelView, DiUiHUDModelView.Factory>();
+            Container.Bind<DiUiHUDViewModel>().AsSingle();
         }
 
         public enum UIPrefabProviderType

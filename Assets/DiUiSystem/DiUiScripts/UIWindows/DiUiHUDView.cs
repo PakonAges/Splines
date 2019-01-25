@@ -6,7 +6,7 @@ namespace DiUi
     [Binding]
     public class DiUiHUDView : UiView
     {
-        private DiUiHUDModelView _myModelView;
+        private DiUiHUDViewModel _myModelView;
 
         [Binding]
         public int RealTimeDate { get; set; }
