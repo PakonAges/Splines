@@ -11,19 +11,23 @@ namespace DiUi
 
         DiUiHUDViewModel _HUD;
         ICubeDataProvider _cubeData;
+        DataCube.Factory _cubeFactory;
 
         [Inject]
         public void Construct(  DiUiHUDViewModel HUD,
-                                ICubeDataProvider cubeDataProvider)
+                                ICubeDataProvider cubeDataProvider,
+                                DataCube.Factory cubeFactory)
         {
             _HUD = HUD;
             _cubeData = cubeDataProvider;
+            _cubeFactory = cubeFactory;
         }
 
         async Task Start()
         {
             await _HUD.ShowViewAsync();
-            _cubeData.MyCube = Instantiate(DataCube).GetComponent<DataCube>();
+            //_cubeData.MyCube = Instantiate(DataCube).GetComponent<DataCube>();
+            _cubeData.MyCube = _cubeFactory.Create();
         }
 
         void Update()

@@ -1,20 +1,34 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
 namespace DiUi
 {
-    public class DiUiHUDViewModel : IDiViewModel, ITickable
+    public class DiUiHUDViewModel : IDiViewModel, ITickable, IInitializable, IDisposable
     {
+        readonly SignalBus _signalBus;
         readonly IDiUiPrefabProvider _prefabProvider;
         readonly ICubeDataProvider _dataProvider;
         DiUiHUDView _myView;
 
-        public DiUiHUDViewModel(IDiUiPrefabProvider prefabProvider,
+        public DiUiHUDViewModel(SignalBus signalBus,
+                                IDiUiPrefabProvider prefabProvider,
                                 ICubeDataProvider dataProvider)
         {
+            _signalBus = signalBus;
             _prefabProvider = prefabProvider;
             _dataProvider = dataProvider;
+        }
+
+        public void Initialize()
+        {
+            _signalBus.Subscribe<CubeMovementSignal>(UpdateEventData);
+        }
+
+        public void Dispose()
+        {
+            _signalBus.Unsubscribe<CubeMovementSignal>(UpdateEventData);
         }
 
         public void ControllCube()
@@ -30,12 +44,18 @@ namespace DiUi
             }
         }
 
+        void UpdateEventData(CubeMovementSignal signal)
+        {
+            _myView.UpdateEventTimeData(signal.Direction);
+        }
+
         public async Task ShowViewAsync()
         {
             var Prefab = await _prefabProvider.GetWindowPrefab(this);
             var ViewGo = GameObject.Instantiate(Prefab);
             _myView = ViewGo.GetComponent<DiUiHUDView>();
-            //show Data
         }
+
+
     }
 }

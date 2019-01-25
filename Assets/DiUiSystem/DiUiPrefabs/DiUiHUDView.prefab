@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: -1670825535, guid: 37f8d8a5bbb63f0408b99d56763ce79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewAdapterTypeName: UnityWeld.Binding.Adapters.IntToStringAdapter
+  viewAdapterTypeName: 
   viewAdapterOptions: {fileID: 0}
   viewModelPropertyName: DiUi.DiUiHUDView.EventData
   viewPropertyName: TMPro.TextMeshProUGUI.text

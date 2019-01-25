@@ -90,5 +90,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b892bdc73f614946aa98bdf63e6b9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveTarget: {x: 10, y: 0, z: 0}
-  MoveDuration: 1
+  MoveTarget: {x: 5, y: 0, z: 0}
+  MoveDuration: 2

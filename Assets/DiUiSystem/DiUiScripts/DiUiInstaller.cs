@@ -6,13 +6,15 @@ namespace DiUi
     public class DiUiInstaller : MonoInstaller
     {
         public UIPrefabProviderType PrefabProviderType;
-        //public GameObject InspectorPrefabProvider;
+        public GameObject Cube;
 
         public override void InstallBindings()
         {
             BindPrefabProviders();
             BindUIViewModels();
+            BindSignals();
             Container.Bind<ICubeDataProvider>().To<CubeDataProvider>().AsSingle();
+            Container.BindFactory<DataCube, DataCube.Factory>().FromComponentInNewPrefab(Cube).AsSingle();
         }
 
         void BindPrefabProviders()
@@ -37,6 +39,12 @@ namespace DiUi
         {
             Container.BindInterfacesAndSelfTo<DiUiHUDViewModel>().AsSingle();
             //Container.Bind<DiUiHUDViewModel>().AsSingle();
+        }
+
+        void BindSignals()
+        {
+            SignalBusInstaller.Install(Container);
+            Container.DeclareSignal<CubeMovementSignal>();
         }
 
         public enum UIPrefabProviderType

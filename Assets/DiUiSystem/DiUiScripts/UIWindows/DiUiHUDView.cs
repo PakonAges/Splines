@@ -13,6 +13,7 @@ namespace DiUi
         //{
         //    _myModelView = ViewModel;
         //}
+
         string _realTimeData;
 
         [Binding]
@@ -32,8 +33,23 @@ namespace DiUi
 
         }
 
+        private string _eventData;
+
         [Binding]
-        public int EventData { get; set; }
+        public string EventData
+        {
+            get { return _eventData; }
+            set
+            {
+                if (_eventData == value)
+                {
+                    return;
+                }
+
+                _eventData = value;
+                OnPropertyChanged("EventData");
+            }
+        }
 
         [Binding]
         public void OnControlCubeBtnClicked()
@@ -44,6 +60,11 @@ namespace DiUi
         public void UpdateRealTimeData(Vector3 position)
         {
             RealTimeData = "Cube Position (" + position.x + ";" + position.y + ";" + position.z + ")";
+        }
+
+        public void UpdateEventTimeData(MovementDirection direction)
+        {
+            EventData = "Move Direction: " + direction.ToString();
         }
     }
 }
