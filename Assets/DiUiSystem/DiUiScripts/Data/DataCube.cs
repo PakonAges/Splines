@@ -16,6 +16,7 @@ namespace DiUi
 
         SignalBus _signalBus;
         MovementDirection _direction;
+        MovementDirection _cachedDirection;
 
         [Inject]
         public void Construct(SignalBus signalBus)
@@ -28,21 +29,30 @@ namespace DiUi
             _material = gameObject.GetComponent<MeshRenderer>().material;
             _origColor = _material.color;
             StartMovement();
-
+            _movementTweener.SetAutoKill(false);
         }
 
         void StartMovement()
         {
-            //_movementTweener = transform.DOLocalMove(MoveTarget, MoveDuration).SetLoops(-1, LoopType.Yoyo);
             MoveRight();
-
             _colorTweener = _material.DOColor(Color.red, MoveDuration).SetLoops(-1, LoopType.Yoyo);
         }
 
         public void ControlTweener()
         {
-            //DOESN't WORK!
             _movementTweener.TogglePause();
+
+            if (!_movementTweener.IsPlaying())
+            {
+                _cachedDirection = _direction;
+                _direction = MovementDirection.Stop;
+            }
+            else
+            {
+                _direction = _cachedDirection;
+            }
+
+            _signalBus.TryFire(new CubeMovementSignal(_direction));
         }
 
 

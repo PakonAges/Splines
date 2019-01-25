@@ -14,6 +14,7 @@
     {
         Invalid,
         Right,
-        Left
+        Left,
+        Stop
     }
 }

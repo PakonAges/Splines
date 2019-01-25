@@ -7,7 +7,7 @@ namespace DiUi
     [Binding]
     public class DiUiHUDView : UiView
     {
-        //private DiUiHUDViewModel _myModelView;
+        public DiUiHUDViewModel ViewModel { private get; set; }
 
         //public override void InitializeView(DiUiViewModel ViewModel)
         //{
@@ -54,7 +54,7 @@ namespace DiUi
         [Binding]
         public void OnControlCubeBtnClicked()
         {
-            //_myModelView.ControllCube();
+            ViewModel.ControllCube();
         }
 
         public void UpdateRealTimeData(Vector3 position)

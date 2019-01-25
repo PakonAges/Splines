@@ -26,7 +26,6 @@ namespace DiUi
         async Task Start()
         {
             await _HUD.ShowViewAsync();
-            //_cubeData.MyCube = Instantiate(DataCube).GetComponent<DataCube>();
             _cubeData.MyCube = _cubeFactory.Create();
         }
 
@@ -34,7 +33,7 @@ namespace DiUi
         {
             if (Input.GetKeyDown(CubeControllKey))
             {
-                DataCube.GetComponent<DataCube>().ControlTweener();
+                _cubeData.MyCube.ControlTweener();
                 Debug.Log("Cube control Commad pass");
             }
         }

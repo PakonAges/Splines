@@ -33,15 +33,21 @@ namespace DiUi
 
         public void ControllCube()
         {
-            //pass command from View
+            _dataProvider.MyCube.ControlTweener();
         }
 
+        //Update real-time Data
         public void Tick()
         {
             if (_myView != null)
             {
-                _myView.UpdateRealTimeData(_dataProvider.CubePosition);
+                UpdateRealTimeData();
             }
+        }
+
+        void UpdateRealTimeData()
+        {
+            _myView.UpdateRealTimeData(_dataProvider.CubePosition);
         }
 
         void UpdateEventData(CubeMovementSignal signal)
@@ -54,6 +60,7 @@ namespace DiUi
             var Prefab = await _prefabProvider.GetWindowPrefab(this);
             var ViewGo = GameObject.Instantiate(Prefab);
             _myView = ViewGo.GetComponent<DiUiHUDView>();
+            _myView.ViewModel = this;
         }
 
 
