@@ -3,12 +3,11 @@ using UnityEngine;
 
 namespace DiUi
 {
-    public class DiUiPopUpViewModel : IDiViewModel
+    public class DiUiPopUpViewModel : UiViewModel, IDiViewModel
     {
-        readonly IDiUiPrefabProvider _prefabProvider; //Same member in all ViewModels!
         DiUiPopUpView _myView;                          //Same member in all ViewModels but type if sub-type
 
-        public DiUiPopUpViewModel(IDiUiPrefabProvider prefabProvider)
+        public DiUiPopUpViewModel(IDiUiPrefabProvider prefabProvider) : base (prefabProvider)
         {
             _prefabProvider = prefabProvider;
         }
@@ -25,6 +24,5 @@ namespace DiUi
         {
             GameObject.Destroy(_myView.gameObject);
         }
-
     }
 }

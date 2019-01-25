@@ -5,10 +5,9 @@ using Zenject;
 
 namespace DiUi
 {
-    public class DiUiHUDViewModel : IDiViewModel, ITickable, IInitializable, IDisposable
+    public class DiUiHUDViewModel : UiViewModel, IDiViewModel, ITickable, IInitializable, IDisposable
     {
         readonly SignalBus _signalBus;
-        readonly IDiUiPrefabProvider _prefabProvider;
         readonly ICubeDataProvider _dataProvider;
         readonly DiUiPopUpViewModel _popUpVM;
 
@@ -17,7 +16,7 @@ namespace DiUi
         public DiUiHUDViewModel(SignalBus signalBus,
                                 IDiUiPrefabProvider prefabProvider,
                                 ICubeDataProvider dataProvider,
-                                DiUiPopUpViewModel popUp)
+                                DiUiPopUpViewModel popUp) : base (prefabProvider)
         {
             _signalBus = signalBus;
             _prefabProvider = prefabProvider;
