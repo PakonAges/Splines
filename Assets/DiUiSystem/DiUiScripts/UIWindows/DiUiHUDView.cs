@@ -9,11 +9,6 @@ namespace DiUi
     {
         public DiUiHUDViewModel ViewModel { private get; set; }
 
-        //public override void InitializeView(DiUiViewModel ViewModel)
-        //{
-        //    _myModelView = ViewModel;
-        //}
-
         string _realTimeData;
 
         [Binding]
@@ -55,6 +50,12 @@ namespace DiUi
         public void OnControlCubeBtnClicked()
         {
             ViewModel.ControllCube();
+        }
+
+        [Binding]
+        public void OnShowPopupBtnClick()
+        {
+            ViewModel.ShowPopup();
         }
 
         public void UpdateRealTimeData(Vector3 position)

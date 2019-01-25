@@ -10,15 +10,19 @@ namespace DiUi
         readonly SignalBus _signalBus;
         readonly IDiUiPrefabProvider _prefabProvider;
         readonly ICubeDataProvider _dataProvider;
+        readonly DiUiPopUpViewModel _popUpVM;
+
         DiUiHUDView _myView;
 
         public DiUiHUDViewModel(SignalBus signalBus,
                                 IDiUiPrefabProvider prefabProvider,
-                                ICubeDataProvider dataProvider)
+                                ICubeDataProvider dataProvider,
+                                DiUiPopUpViewModel popUp)
         {
             _signalBus = signalBus;
             _prefabProvider = prefabProvider;
             _dataProvider = dataProvider;
+            _popUpVM = popUp;
         }
 
         public void Initialize()
@@ -55,6 +59,11 @@ namespace DiUi
             _myView.UpdateEventTimeData(signal.Direction);
         }
 
+        public async void ShowPopup()
+        {
+            await _popUpVM.ShowViewAsync();
+        }
+
         public async Task ShowViewAsync()
         {
             var Prefab = await _prefabProvider.GetWindowPrefab(this);
@@ -62,7 +71,6 @@ namespace DiUi
             _myView = ViewGo.GetComponent<DiUiHUDView>();
             _myView.ViewModel = this;
         }
-
 
     }
 }

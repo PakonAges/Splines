@@ -38,6 +38,7 @@ namespace DiUi
         void BindUIViewModels()
         {
             Container.BindInterfacesAndSelfTo<DiUiHUDViewModel>().AsSingle();
+            Container.Bind<DiUiPopUpViewModel>().AsSingle();
             //Container.Bind<DiUiHUDViewModel>().AsSingle();
         }
 
