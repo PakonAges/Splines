@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace DiUi
 {
     public class DiUiPopUpViewModel : UiViewModel<DiUiPopUpViewModel>, IDiViewModel
     {
         internal override IDiView IView { get; set; }
+
         DiUiPopUpView _view;
         public DiUiPopUpView View
         {
@@ -13,12 +13,12 @@ namespace DiUi
             set { _view = value; }
         }
 
-        public DiUiPopUpViewModel(IDiUiPrefabProvider prefabProvider) : base (prefabProvider)
+        public DiUiPopUpViewModel(IDiUiPrefabProvider prefabProvider, IUIViewModelsStack uIViewModelsStack) : base (prefabProvider, uIViewModelsStack)
         {
             _prefabProvider = prefabProvider;
         }
 
-        public void CloseView()
+        public override void Close()
         {
             GameObject.Destroy(View.gameObject);
         }

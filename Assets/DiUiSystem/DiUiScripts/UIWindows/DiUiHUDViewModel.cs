@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
 namespace DiUi
 {
-    public class DiUiHUDViewModel : UiViewModel<DiUiHUDViewModel>, IDiViewModel, ITickable, IInitializable, IDisposable
+    public class DiUiHUDViewModel : UiViewModel<DiUiHUDViewModel>, IDiViewModel, ITickable
     {
         readonly SignalBus _signalBus;
         readonly ICubeDataProvider _dataProvider;
@@ -20,10 +19,12 @@ namespace DiUi
             set { _view = value; }
         }
 
+
         public DiUiHUDViewModel(SignalBus signalBus,
                                 IDiUiPrefabProvider prefabProvider,
                                 ICubeDataProvider dataProvider,
-                                DiUiPopUpViewModel popUp) : base (prefabProvider)
+                                IUIViewModelsStack uIViewModelsStack,
+                                DiUiPopUpViewModel popUp) : base (prefabProvider, uIViewModelsStack)
         {
             _signalBus = signalBus;
             _prefabProvider = prefabProvider;
@@ -31,19 +32,14 @@ namespace DiUi
             _popUpVM = popUp;
         }
 
-        public void Initialize()
+        public override void Initialize()
         {
             _signalBus.Subscribe<CubeMovementSignal>(UpdateEventData);
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             _signalBus.Unsubscribe<CubeMovementSignal>(UpdateEventData);
-        }
-
-        public void ControllCube()
-        {
-            _dataProvider.MyCube.ControlTweener();
         }
 
         //Update real-time Data
@@ -55,6 +51,11 @@ namespace DiUi
             }
         }
 
+        public override void Close()
+        {
+            GameObject.Destroy(View.gameObject);
+        }
+
         void UpdateRealTimeData()
         {
             View.UpdateRealTimeData(_dataProvider.CubePosition);
@@ -63,6 +64,11 @@ namespace DiUi
         void UpdateEventData(CubeMovementSignal signal)
         {
             View.UpdateEventTimeData(signal.Direction);
+        }
+
+        public void ControllCube()
+        {
+            _dataProvider.MyCube.ControlTweener();
         }
 
         public async void ShowPopup()

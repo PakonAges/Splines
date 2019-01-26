@@ -16,7 +16,7 @@ namespace DiUi
         [Binding]
         public void OnClose()
         {
-            ViewModel.CloseView();
+            ViewModel.Close();
         }
     }
 }

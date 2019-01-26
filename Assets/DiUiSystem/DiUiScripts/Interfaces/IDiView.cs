@@ -2,7 +2,7 @@
 {
     public interface IDiView
     {
-        //void SetViewModel<T>(T ViewModel) where T : UiViewModel;
+        bool HideOnClose { get; }
         void SetViewModel(IDiViewModel viewModel);
     }
 }

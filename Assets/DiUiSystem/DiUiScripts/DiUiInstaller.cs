@@ -15,6 +15,7 @@ namespace DiUi
             BindSignals();
             Container.Bind<ICubeDataProvider>().To<CubeDataProvider>().AsSingle();
             Container.BindFactory<DataCube, DataCube.Factory>().FromComponentInNewPrefab(Cube).AsSingle();
+            Container.Bind<IUIViewModelsStack>().To<UIViewModelsStack>().AsSingle();
         }
 
         void BindPrefabProviders()
@@ -39,7 +40,6 @@ namespace DiUi
         {
             Container.BindInterfacesAndSelfTo<DiUiHUDViewModel>().AsSingle();
             Container.Bind<DiUiPopUpViewModel>().AsSingle();
-            //Container.Bind<DiUiHUDViewModel>().AsSingle();
         }
 
         void BindSignals()
