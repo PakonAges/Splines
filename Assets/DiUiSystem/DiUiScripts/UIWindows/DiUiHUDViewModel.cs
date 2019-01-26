@@ -9,6 +9,7 @@ namespace DiUi
         readonly SignalBus _signalBus;
         readonly ICubeDataProvider _dataProvider;
         readonly DiUiPopUpViewModel _popUpVM;
+        readonly DiUiConfirmExitViewModel _confirmExit;
 
         internal override IDiView IView { get; set; }
 
@@ -24,12 +25,14 @@ namespace DiUi
                                 IDiUiPrefabProvider prefabProvider,
                                 ICubeDataProvider dataProvider,
                                 IUIViewModelsStack uIViewModelsStack,
-                                DiUiPopUpViewModel popUp) : base (prefabProvider, uIViewModelsStack)
+                                DiUiPopUpViewModel popUp,
+                                DiUiConfirmExitViewModel diUiConfirmExit) : base (prefabProvider, uIViewModelsStack)
         {
             _signalBus = signalBus;
             _prefabProvider = prefabProvider;
             _dataProvider = dataProvider;
             _popUpVM = popUp;
+            _confirmExit = diUiConfirmExit;
         }
 
         public override void Initialize()
@@ -51,9 +54,16 @@ namespace DiUi
             }
         }
 
-        public override void Close()
+        public async override void Close()
         {
-            GameObject.Destroy(View.gameObject);
+            try
+            {
+                await _confirmExit.ShowViewAsync();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
         }
 
         void UpdateRealTimeData()

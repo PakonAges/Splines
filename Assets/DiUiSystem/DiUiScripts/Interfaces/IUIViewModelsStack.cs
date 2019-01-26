@@ -6,5 +6,7 @@ namespace DiUi
     {
         Stack<UiViewModel> Stack { get; set; }
         void AddViewModel(UiViewModel ViewModel);
+        void CloseTopView();
+        void Close(UiViewModel ViewModel);
     }
 }

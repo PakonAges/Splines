@@ -48,7 +48,7 @@ namespace DiUi
                 _cubeData.MyCube.ControlTweener();
             } else if (Input.GetKeyDown(BackBtn) && _viewsStack.Stack.Count > 0)
             {
-                _viewsStack.Stack.Peek().Close();
+                _viewsStack.CloseTopView();
             }
         }
     }

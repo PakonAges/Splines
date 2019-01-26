@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace DiUi
 {
@@ -25,6 +26,30 @@ namespace DiUi
             }
 
             Stack.Push(ViewModel);
+        }
+
+        public void CloseTopView()
+        {
+            var TopView = Stack.Pop();
+            TopView.Close();
+        }
+
+        //Assumes that I want to close only top view? is it correct?
+        public void Close(UiViewModel ViewModel)
+        {
+            if (Stack.Count == 0)
+            {
+                Debug.LogErrorFormat("Trying to close Viev: {0}, But Stack is empty", ViewModel);
+                return;
+            }
+
+            if (Stack.Peek() != ViewModel)
+            {
+                Debug.LogErrorFormat("Trying to close View ({0}), but it isn't at the top of the Stack", ViewModel);
+                return;
+            }
+
+            CloseTopView();
         }
     }
 }
