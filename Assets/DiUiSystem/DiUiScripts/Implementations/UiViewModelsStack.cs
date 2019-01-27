@@ -30,8 +30,16 @@ namespace DiUi
 
         public void CloseTopView()
         {
-            var TopView = Stack.Pop();
-            TopView.Close();
+            var TopView = Stack.Peek();
+            if (TopView.IView.NeedConfirmToClose)
+            {
+                TopView.ShowConfirmToClose();
+            }
+            else
+            {
+                TopView.CloseCommand();
+                Stack.Pop();
+            }
         }
 
         //Assumes that I want to close only top view? is it correct?

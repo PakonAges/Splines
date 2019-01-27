@@ -17,9 +17,11 @@ namespace DiUi
         //public bool ShowTranslucentBg = true;
         public bool CacheOnClosed = false;
         public bool HideSubordinates = false;
+        public bool NeedConfirm = false;
 
         internal abstract IDiViewModel IViewModel { get; set; }
         public bool HideOnClose { get; private set; }
+        public bool NeedConfirmToClose { get; private set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -34,6 +36,7 @@ namespace DiUi
         {
             IViewModel = viewModel;
             HideOnClose = CacheOnClosed;
+            NeedConfirmToClose = NeedConfirm;
         }
     }
 }

@@ -28,10 +28,5 @@ namespace DiUi
          Application.Quit();
 #endif
         }
-
-        public override void Close()
-        {
-            GameObject.Destroy(View.gameObject);
-        }
     }
 }

@@ -31,7 +31,7 @@ namespace DiUi
             }
         }
 
-        public override void Close()
+        public override void Dispose()
         {
             if (IView.HideOnClose)
             {
@@ -42,6 +42,20 @@ namespace DiUi
                 //Destroy
                 //Dispose VM?
             }
+
+            GameObject.Destroy(Canvas.gameObject);
+        }
+
+        //From Stack
+        public override void CloseCommand()
+        {
+            Dispose();
+        }
+
+        //From UI and Input
+        public override void Close()
+        {
+            _stack.Close(this);
         }
     }
 
@@ -55,6 +69,7 @@ namespace DiUi
         public virtual void Initialize() { }
         public virtual void Dispose() { }
         public virtual void Close() { }
-
+        public virtual void CloseCommand() { }
+        public virtual void ShowConfirmToClose() { }
     }
 }

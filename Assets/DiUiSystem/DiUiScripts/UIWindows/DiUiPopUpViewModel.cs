@@ -17,10 +17,5 @@ namespace DiUi
             _prefabProvider = prefabProvider;
         }
 
-        public override void Close()
-        {
-            GameObject.Destroy(View.gameObject);
-            //Remove from stack? but it assumes that Im at the top. which is can  be untrue
-        }
     }
 }

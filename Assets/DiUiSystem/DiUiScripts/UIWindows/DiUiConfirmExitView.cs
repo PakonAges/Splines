@@ -22,7 +22,7 @@ namespace DiUi
         [Binding]
         public void OnCancel()
         {
-            ViewModel.Close();
+            ViewModel.CloseCommand();
         }
     }
 }

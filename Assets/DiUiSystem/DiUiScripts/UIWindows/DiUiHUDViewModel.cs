@@ -43,6 +43,7 @@ namespace DiUi
         public override void Dispose()
         {
             _signalBus.Unsubscribe<CubeMovementSignal>(UpdateEventData);
+            base.Dispose();
         }
 
         //Update real-time Data
@@ -54,7 +55,7 @@ namespace DiUi
             }
         }
 
-        public async override void Close()
+        public async override void ShowConfirmToClose()
         {
             try
             {
