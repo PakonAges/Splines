@@ -14,7 +14,7 @@ namespace DiUi
         }
 
         [Binding]
-        public void OnClose()
+        public void OnExitGameBtn()
         {
             ViewModel.ExitGame();
         }
@@ -22,7 +22,7 @@ namespace DiUi
         [Binding]
         public void OnCancel()
         {
-            ViewModel.CloseCommand();
+            ViewModel.Close();
         }
     }
 }
