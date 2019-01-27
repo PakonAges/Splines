@@ -59,7 +59,7 @@ namespace DiUi
         {
             try
             {
-                await _confirmExit.ShowViewAsync();
+                await _confirmExit.Open();
             }
             catch (Exception e)
             {
@@ -86,7 +86,7 @@ namespace DiUi
         {
             try
             {
-                await _popUpVM.ShowViewAsync();
+                await _popUpVM.Open();
             }
             catch (Exception e)
             {

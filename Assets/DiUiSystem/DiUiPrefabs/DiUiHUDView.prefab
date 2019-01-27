@@ -1706,7 +1706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CacheOnClosed: 0
   HideSubordinates: 0
-  NeedConfirm: 1
+  NeedConfirmBeforeClosing: 1
 --- !u!1 &8657682966789876712
 GameObject:
   m_ObjectHideFlags: 0

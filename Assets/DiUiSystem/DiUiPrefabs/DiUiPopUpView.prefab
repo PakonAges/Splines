@@ -716,6 +716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d0f681a023ddb4ca8eec7822fbeade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowTranslucentBg: 1
-  CacheOnClosed: 0
+  CacheOnClosed: 1
   HideSubordinates: 0
+  NeedConfirm: 0

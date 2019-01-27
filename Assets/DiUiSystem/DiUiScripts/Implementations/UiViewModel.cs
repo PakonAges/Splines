@@ -14,6 +14,26 @@ namespace DiUi
             _prefabProvider = prefabProvider;
         }
 
+        public async override Task Open()
+        {
+            //Already been created
+            if (IView != null && IView.HideOnClose)
+            {
+                if (!Canvas)
+                {
+                    Debug.LogErrorFormat("Trying to enable Canvas on Cached View ({0}), but there is no canvas", this);
+                    return;
+                }
+
+                Canvas.enabled = true;
+                _stack.AddViewModel(this);
+            }
+            else
+            {
+                await ShowViewAsync();
+            }
+        }
+
         public virtual async Task ShowViewAsync()
         {
             try
@@ -35,24 +55,22 @@ namespace DiUi
         {
             if (IView.HideOnClose)
             {
-                //Disable Canvas
+                Canvas.enabled = false;
             }
             else
             {
-                //Destroy
-                //Dispose VM?
+                if (Canvas)
+                {
+                    GameObject.Destroy(Canvas.gameObject);
+                }
             }
-
-            GameObject.Destroy(Canvas.gameObject);
         }
 
-        //From Stack
         public override void CloseCommand()
         {
             Dispose();
         }
 
-        //From UI and Input
         public override void Close()
         {
             _stack.Close(this);
@@ -68,8 +86,25 @@ namespace DiUi
 
         public virtual void Initialize() { }
         public virtual void Dispose() { }
+
+        /// <summary>
+        /// Open call from UI and Input. Check if there is cached View is awailable before creating new
+        /// </summary>
+        public virtual Task Open() { return null; }
+
+        /// <summary>
+        /// Call from UI and Input
+        /// </summary>
         public virtual void Close() { }
+
+        /// <summary>
+        /// Call from UI Stack
+        /// </summary>
         public virtual void CloseCommand() { }
+
+        /// <summary>
+        /// ON close -> Show confirm Pop Up without closing View
+        /// </summary>
         public virtual void ShowConfirmToClose() { }
     }
 }
