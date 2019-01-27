@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-
-namespace DiUi
+﻿namespace DiUi
 {
-    public class DiUiConfirmExitViewModel : UiViewModel<DiUiConfirmExitViewModel>, IDiViewModel
+    public class DiUiConfirmExitViewModel : UiViewModel<DiUiConfirmExitViewModel>
     {
         internal override IDiView IView { get; set; }
         DiUiConfirmExitView _view;

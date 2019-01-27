@@ -41,6 +41,7 @@ namespace DiUi
             Container.BindInterfacesAndSelfTo<DiUiHUDViewModel>().AsSingle();
             Container.Bind<DiUiPopUpViewModel>().AsSingle();
             Container.Bind<DiUiConfirmExitViewModel>().AsSingle();
+            Container.Bind<DiUiPopUpThatHidesEverrythingViewModel>().AsSingle();
         }
 
         void BindSignals()

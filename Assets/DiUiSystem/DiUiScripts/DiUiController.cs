@@ -31,7 +31,7 @@ namespace DiUi
         {
             try
             {
-                await _HUD.ShowViewAsync();
+                await _HUD.Open();
             }
             catch (System.Exception e)
             {

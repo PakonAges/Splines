@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-
-namespace DiUi
+﻿namespace DiUi
 {
-    public class DiUiPopUpViewModel : UiViewModel<DiUiPopUpViewModel>, IDiViewModel
+    public class DiUiPopUpViewModel : UiViewModel<DiUiPopUpViewModel>
     {
         internal override IDiView IView { get; set; }
         DiUiPopUpView _view;

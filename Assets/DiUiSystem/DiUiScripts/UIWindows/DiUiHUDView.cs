@@ -63,6 +63,12 @@ namespace DiUi
             ViewModel.ShowPopup();
         }
 
+        [Binding]
+        public void OnShowHideousPopupBtnClick()
+        {
+            ViewModel.ShowHideousPopup();
+        }
+
         public void UpdateRealTimeData(Vector3 position)
         {
             RealTimeData = "Cube Position (" + position.x + ";" + position.y + ";" + position.z + ")";

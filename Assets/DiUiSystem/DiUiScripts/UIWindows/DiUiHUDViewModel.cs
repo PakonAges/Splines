@@ -11,6 +11,9 @@ namespace DiUi
         readonly DiUiPopUpViewModel _popUpVM;
         readonly DiUiConfirmExitViewModel _confirmExit;
 
+        [Inject]
+        DiUiPopUpThatHidesEverrythingViewModel _hideousPopUp;
+
         internal override IDiView IView { get; set; }
 
         DiUiHUDView _view;
@@ -92,6 +95,11 @@ namespace DiUi
             {
                 Debug.LogError(e);
             }
+        }
+
+        public async void ShowHideousPopup()
+        {
+            await _hideousPopUp.Open();
         }
     }
 }
