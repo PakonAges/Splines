@@ -6,12 +6,7 @@ namespace DiUi
     [Binding]
     public class DiUiHUDView : UiView<DiUiHUDView>
     {
-        DiUiHUDViewModel _viewModel;
-        public DiUiHUDViewModel ViewModel
-        {
-            get { return IViewModel as DiUiHUDViewModel; }
-            set { _viewModel = value; }
-        }
+        public DiUiHUDViewModel ViewModel { get { return IViewModel as DiUiHUDViewModel; }}
 
         string _realTimeData;
 

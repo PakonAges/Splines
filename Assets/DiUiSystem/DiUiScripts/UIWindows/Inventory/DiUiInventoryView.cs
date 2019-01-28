@@ -5,12 +5,7 @@ namespace DiUi
     [Binding]
     public class DiUiInventoryView : UiView<DiUiInventoryView>
     {
-        DiUiInventoryViewModel _viewModel;
-        public DiUiInventoryViewModel ViewModel
-        {
-            get { return IViewModel as DiUiInventoryViewModel; }
-            set { _viewModel = value; }
-        }
+        public DiUiInventoryViewModel ViewModel { get { return IViewModel as DiUiInventoryViewModel; } }
 
         [Binding]
         public void OnClose()
@@ -19,9 +14,17 @@ namespace DiUi
         }
 
         [Binding]
+        public void OnUpdateClick()
+        {
+            inventoryItems = ViewModel.InventoryList;
+        }
+
+        private ObservableList<DiUiInventoryItemViewModel> inventoryItems = new ObservableList<DiUiInventoryItemViewModel>();
+
+        [Binding]
         public ObservableList<DiUiInventoryItemViewModel> InventoryItems
         {
-            get { return ViewModel.InventoryList; }
+            get { return inventoryItems; }
         }
     }
 }

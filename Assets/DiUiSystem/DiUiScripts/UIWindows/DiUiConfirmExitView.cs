@@ -5,12 +5,7 @@ namespace DiUi
     [Binding]
     public class DiUiConfirmExitView : UiView<DiUiConfirmExitView>
     {
-        DiUiConfirmExitViewModel _viewModel;
-        public DiUiConfirmExitViewModel ViewModel
-        {
-            get { return IViewModel as DiUiConfirmExitViewModel; }
-            set { _viewModel = value; }
-        }
+        public DiUiConfirmExitViewModel ViewModel { get { return IViewModel as DiUiConfirmExitViewModel; }}
 
         [Binding]
         public void OnExitGameBtn()

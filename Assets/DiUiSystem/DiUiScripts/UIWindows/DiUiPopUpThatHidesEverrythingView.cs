@@ -5,12 +5,7 @@ namespace DiUi
     [Binding]
     public class DiUiPopUpThatHidesEverrythingView : UiView<DiUiPopUpThatHidesEverrythingView>
     {
-        DiUiPopUpThatHidesEverrythingViewModel _viewModel;
-        public DiUiPopUpThatHidesEverrythingViewModel ViewModel
-        {
-            get { return IViewModel as DiUiPopUpThatHidesEverrythingViewModel; }
-            set { _viewModel = value; }
-        }
+        public DiUiPopUpThatHidesEverrythingViewModel ViewModel { get { return IViewModel as DiUiPopUpThatHidesEverrythingViewModel; }}
         
         [Binding]
         public void OnCloseBtn()
