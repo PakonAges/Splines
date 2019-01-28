@@ -14,7 +14,6 @@ namespace DiUi
 
     public abstract class UiView : MonoBehaviour, IDiView, INotifyPropertyChanged
     {
-        //public bool ShowTranslucentBg = true;
         public bool CacheOnClosed = false;
         public bool HideSubordinates = false;
         public bool NeedConfirmBeforeClosing = false;
