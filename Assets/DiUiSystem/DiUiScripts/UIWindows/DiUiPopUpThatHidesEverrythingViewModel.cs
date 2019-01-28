@@ -7,7 +7,6 @@ namespace DiUi
     {
         [Inject] DiUiInventoryViewModel _Inventory = null;
 
-        internal override IDiView IView { get; set; }
         DiUiPopUpThatHidesEverrythingView _view;
         public DiUiPopUpThatHidesEverrythingView View
         {
@@ -15,10 +14,7 @@ namespace DiUi
             set { _view = value; }
         }
 
-        public DiUiPopUpThatHidesEverrythingViewModel(IDiUiPrefabProvider prefabProvider, IUIViewModelsStack uIViewModelsStack) : base(prefabProvider, uIViewModelsStack)
-        {
-
-        }
+        public DiUiPopUpThatHidesEverrythingViewModel(IDiUiPrefabProvider prefabProvider, IUIViewModelsStack uIViewModelsStack) : base(prefabProvider, uIViewModelsStack) { }
 
         public async Task OpenInventoryView()
         {

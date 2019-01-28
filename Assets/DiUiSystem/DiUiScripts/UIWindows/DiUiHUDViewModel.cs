@@ -13,7 +13,6 @@ namespace DiUi
         [Inject] readonly DiUiConfirmExitViewModel _confirmExit = null;
         [Inject] readonly DiUiPopUpThatHidesEverrythingViewModel _hideousPopUp = null;
 
-        internal override IDiView IView { get; set; }
         DiUiHUDView _view;
         public DiUiHUDView View
         {

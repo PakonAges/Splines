@@ -5,7 +5,6 @@ namespace DiUi
     [Binding]
     public class DiUiPopUpView : UiView<DiUiPopUpView>
     {
-        internal override IDiViewModel IViewModel { get; set; }
         DiUiPopUpViewModel _viewModel;
         public DiUiPopUpViewModel ViewModel
         {

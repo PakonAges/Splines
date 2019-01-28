@@ -5,7 +5,6 @@ namespace DiUi
     [Binding]
     public class DiUiConfirmExitView : UiView<DiUiConfirmExitView>
     {
-        internal override IDiViewModel IViewModel { get; set; }
         DiUiConfirmExitViewModel _viewModel;
         public DiUiConfirmExitViewModel ViewModel
         {

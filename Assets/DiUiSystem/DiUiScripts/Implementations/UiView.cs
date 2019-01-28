@@ -19,7 +19,7 @@ namespace DiUi
         public bool HideSubordinates = false;
         public bool NeedConfirmBeforeClosing = false;
 
-        internal abstract IDiViewModel IViewModel { get; set; }
+        internal virtual IDiViewModel IViewModel { get; set; }
         public bool HideOnClose { get; private set; }
         public bool NeedConfirmToClose { get; private set; }
         public bool HideAllOtherViews { get; private set; }

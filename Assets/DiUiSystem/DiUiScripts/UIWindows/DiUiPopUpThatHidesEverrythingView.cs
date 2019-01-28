@@ -5,7 +5,6 @@ namespace DiUi
     [Binding]
     public class DiUiPopUpThatHidesEverrythingView : UiView<DiUiPopUpThatHidesEverrythingView>
     {
-        internal override IDiViewModel IViewModel { get; set; }
         DiUiPopUpThatHidesEverrythingViewModel _viewModel;
         public DiUiPopUpThatHidesEverrythingViewModel ViewModel
         {
@@ -20,9 +19,9 @@ namespace DiUi
         }
 
         [Binding]
-        public void OnShowInventoryBtn()
+        public async void OnShowInventoryBtn()
         {
-            ViewModel.OpenInventoryView();
+            await ViewModel.OpenInventoryView();
         }
     }
 }

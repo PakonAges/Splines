@@ -2,7 +2,6 @@
 {
     public class DiUiPopUpViewModel : UiViewModel<DiUiPopUpViewModel>
     {
-        internal override IDiView IView { get; set; }
         DiUiPopUpView _view;
         public DiUiPopUpView View
         {

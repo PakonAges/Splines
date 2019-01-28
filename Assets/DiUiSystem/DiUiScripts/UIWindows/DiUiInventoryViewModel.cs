@@ -2,7 +2,6 @@
 {
     public class DiUiInventoryViewModel : UiViewModel<DiUiInventoryViewModel>
     {
-        internal override IDiView IView { get; set; }
         DiUiInventoryView _view;
         public DiUiInventoryView View
         {

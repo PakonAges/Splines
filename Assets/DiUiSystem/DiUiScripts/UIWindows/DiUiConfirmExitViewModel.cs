@@ -2,7 +2,6 @@
 {
     public class DiUiConfirmExitViewModel : UiViewModel<DiUiConfirmExitViewModel>
     {
-        internal override IDiView IView { get; set; }
         DiUiConfirmExitView _view;
         public DiUiConfirmExitView View
         {
@@ -10,10 +9,7 @@
             set { _view = value; }
         }
 
-        public DiUiConfirmExitViewModel(IDiUiPrefabProvider prefabProvider, IUIViewModelsStack uIViewModelsStack) : base(prefabProvider, uIViewModelsStack)
-        {
-
-        }
+        public DiUiConfirmExitViewModel(IDiUiPrefabProvider prefabProvider, IUIViewModelsStack uIViewModelsStack) : base(prefabProvider, uIViewModelsStack) { }
 
         public void ExitGame()
         {

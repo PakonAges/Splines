@@ -81,7 +81,7 @@ namespace DiUi
     {
         internal IDiUiPrefabProvider _prefabProvider;
         internal IUIViewModelsStack _stack;
-        internal abstract IDiView IView { get; set; }
+        internal virtual IDiView IView { get; set; }
         internal Canvas Canvas;
 
         public virtual void Initialize() { }
