@@ -12,19 +12,26 @@ namespace DiUi
         public KeyCode BackBtn = KeyCode.Escape;
 
         DiUiHUDViewModel _HUD;
+        DiUiPopUpViewModel _popUp;
+        DiUiPopUpThatHidesEverrythingViewModel _hiddeousPopUp;
         ICubeDataProvider _cubeData;
         DataCube.Factory _cubeFactory;
 
         [Inject]
         public void Construct(  IUIViewModelsStack viewsStack,
-                                DiUiHUDViewModel HUD,
                                 ICubeDataProvider cubeDataProvider,
+                                DiUiHUDViewModel HUD,
+                                DiUiPopUpViewModel PopUp,
+                                DiUiPopUpThatHidesEverrythingViewModel HideousPopup,
                                 DataCube.Factory cubeFactory)
         {
             _viewsStack = viewsStack;
-            _HUD = HUD;
             _cubeData = cubeDataProvider;
             _cubeFactory = cubeFactory;
+
+            _HUD = HUD;
+            _popUp = PopUp;
+            _hiddeousPopUp = HideousPopup;
         }
 
         async Task Start()
@@ -32,13 +39,15 @@ namespace DiUi
             try
             {
                 await _HUD.Open();
+                //await _popUp.Open();
+                //await _hiddeousPopUp.Open();
+                _cubeData.MyCube = _cubeFactory.Create();
             }
             catch (System.Exception e)
             {
                 Debug.LogError(e);
             }
 
-            _cubeData.MyCube = _cubeFactory.Create();
         }
 
         void Update()
