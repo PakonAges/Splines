@@ -16,6 +16,7 @@ namespace DiUi
             Container.Bind<ICubeDataProvider>().To<CubeDataProvider>().AsSingle();
             Container.BindFactory<DataCube, DataCube.Factory>().FromComponentInNewPrefab(Cube).AsSingle();
             Container.Bind<IUIViewModelsStack>().To<UIViewModelsStack>().AsSingle();
+            Container.Bind<IInventoryData>().To<InventoryData>().AsSingle();
         }
 
         void BindPrefabProviders()
@@ -42,6 +43,7 @@ namespace DiUi
             Container.Bind<DiUiPopUpViewModel>().AsSingle();
             Container.Bind<DiUiConfirmExitViewModel>().AsSingle();
             Container.Bind<DiUiPopUpThatHidesEverrythingViewModel>().AsSingle();
+            Container.Bind<DiUiInventoryViewModel>().AsSingle();
         }
 
         void BindSignals()

@@ -22,7 +22,7 @@ namespace DiUi
         [Binding]
         public void OnShowInventoryBtn()
         {
-            //Show Inventory View
+            ViewModel.OpenInventoryView();
         }
     }
 }

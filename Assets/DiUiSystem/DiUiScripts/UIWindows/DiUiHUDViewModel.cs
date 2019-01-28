@@ -9,12 +9,11 @@ namespace DiUi
         readonly SignalBus _signalBus;
         readonly ICubeDataProvider _dataProvider;
 
-        [Inject] readonly DiUiPopUpViewModel _popUpVM;
-        [Inject] readonly DiUiConfirmExitViewModel _confirmExit;
-        [Inject] readonly DiUiPopUpThatHidesEverrythingViewModel _hideousPopUp;
+        [Inject] readonly DiUiPopUpViewModel _popUpVM = null;
+        [Inject] readonly DiUiConfirmExitViewModel _confirmExit = null;
+        [Inject] readonly DiUiPopUpThatHidesEverrythingViewModel _hideousPopUp = null;
 
         internal override IDiView IView { get; set; }
-
         DiUiHUDView _view;
         public DiUiHUDView View
         {

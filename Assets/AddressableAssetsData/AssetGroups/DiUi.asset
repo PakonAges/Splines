@@ -17,6 +17,10 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 9ce576168c0e85946a0dc7857897b437
   m_SerializeEntries:
+  - m_GUID: 418924e312b26194ba04b7c54942dd7a
+    m_Address: DiUiInventoryView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   - m_GUID: 49aeaccef673ed6408cd4d486be466a1
     m_Address: DiUiConfirmExitView
     m_ReadOnly: 0
