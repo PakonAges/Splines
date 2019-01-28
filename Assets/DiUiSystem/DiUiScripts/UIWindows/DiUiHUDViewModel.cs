@@ -8,11 +8,10 @@ namespace DiUi
     {
         readonly SignalBus _signalBus;
         readonly ICubeDataProvider _dataProvider;
-        readonly DiUiPopUpViewModel _popUpVM;
-        readonly DiUiConfirmExitViewModel _confirmExit;
 
-        [Inject]
-        DiUiPopUpThatHidesEverrythingViewModel _hideousPopUp;
+        [Inject] readonly DiUiPopUpViewModel _popUpVM;
+        [Inject] readonly DiUiConfirmExitViewModel _confirmExit;
+        [Inject] readonly DiUiPopUpThatHidesEverrythingViewModel _hideousPopUp;
 
         internal override IDiView IView { get; set; }
 
@@ -27,15 +26,10 @@ namespace DiUi
         public DiUiHUDViewModel(SignalBus signalBus,
                                 IDiUiPrefabProvider prefabProvider,
                                 ICubeDataProvider dataProvider,
-                                IUIViewModelsStack uIViewModelsStack,
-                                DiUiPopUpViewModel popUp,
-                                DiUiConfirmExitViewModel diUiConfirmExit) : base (prefabProvider, uIViewModelsStack)
+                                IUIViewModelsStack uIViewModelsStack) : base (prefabProvider, uIViewModelsStack)
         {
             _signalBus = signalBus;
-            _prefabProvider = prefabProvider;
             _dataProvider = dataProvider;
-            _popUpVM = popUp;
-            _confirmExit = diUiConfirmExit;
         }
 
         public override void Initialize()

@@ -12,7 +12,7 @@
 
         public DiUiPopUpThatHidesEverrythingViewModel(IDiUiPrefabProvider prefabProvider, IUIViewModelsStack uIViewModelsStack) : base(prefabProvider, uIViewModelsStack)
         {
-            _prefabProvider = prefabProvider;
+
         }
     }
 }

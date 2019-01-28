@@ -12,7 +12,7 @@
 
         public DiUiConfirmExitViewModel(IDiUiPrefabProvider prefabProvider, IUIViewModelsStack uIViewModelsStack) : base(prefabProvider, uIViewModelsStack)
         {
-            _prefabProvider = prefabProvider;
+
         }
 
         public void ExitGame()
