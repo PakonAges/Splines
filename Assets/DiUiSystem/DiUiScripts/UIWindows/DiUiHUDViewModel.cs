@@ -4,7 +4,7 @@ using Zenject;
 
 namespace DiUi
 {
-    public class DiUiHUDViewModel : UiViewModel<DiUiHUDViewModel>, IDiViewModel, ITickable
+    public class DiUiHUDViewModel : UiViewModel<DiUiHUDViewModel>, ITickable
     {
         readonly SignalBus _signalBus;
         readonly ICubeDataProvider _dataProvider;
@@ -91,7 +91,14 @@ namespace DiUi
 
         public async void ShowHideousPopup()
         {
-            await _hideousPopUp.Open();
+            try
+            {
+                await _hideousPopUp.Open();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
         }
     }
 }

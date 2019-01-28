@@ -7,7 +7,7 @@ namespace DiUi
 {
     public abstract class UiViewModel<T> : UiViewModel where T : UiViewModel<T>
     {
-        public UiViewModel( IDiUiPrefabProvider prefabProvider,
+        public UiViewModel(IDiUiPrefabProvider prefabProvider,
                             IUIViewModelsStack uIViewModelsStack)
         {
             _stack = uIViewModelsStack;
@@ -53,6 +53,11 @@ namespace DiUi
 
         public override void Dispose()
         {
+            if (IView == null || Canvas == null)
+            {
+                return;
+            }
+
             if (IView.HideOnClose)
             {
                 Canvas.enabled = false;

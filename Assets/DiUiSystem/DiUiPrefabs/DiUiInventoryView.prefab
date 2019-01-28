@@ -612,6 +612,7 @@ GameObject:
   - component: {fileID: 2621123737700863248}
   - component: {fileID: 8062685675882091345}
   - component: {fileID: 6521361309220698178}
+  - component: {fileID: 6804609857752829736}
   m_Layer: 5
   m_Name: Inventory Holder
   m_TagString: Untagged
@@ -712,6 +713,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!114 &6804609857752829736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8694363237259473447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1223786303, guid: 37f8d8a5bbb63f0408b99d56763ce79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewModelPropertyName: DiUi.DiUiInventoryView.InventoryItems
+  templatesRoot: {fileID: 8543278953208626803}
 --- !u!1 &9198937045678512265
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,16 +1003,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 934980308760537356, guid: 245f5e6843d598d4a8300d9bdfa64027,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 934980308760537356, guid: 245f5e6843d598d4a8300d9bdfa64027,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 245f5e6843d598d4a8300d9bdfa64027, type: 3}

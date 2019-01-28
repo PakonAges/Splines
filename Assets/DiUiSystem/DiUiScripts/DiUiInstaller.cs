@@ -7,6 +7,7 @@ namespace DiUi
     {
         public UIPrefabProviderType PrefabProviderType;
         public GameObject Cube;
+        public GameObject ItemsCollection;
 
         public override void InstallBindings()
         {
@@ -17,6 +18,8 @@ namespace DiUi
             Container.BindFactory<DataCube, DataCube.Factory>().FromComponentInNewPrefab(Cube).AsSingle();
             Container.Bind<IUIViewModelsStack>().To<UIViewModelsStack>().AsSingle();
             Container.Bind<IInventoryData>().To<InventoryData>().AsSingle();
+            Container.Bind<IInventoryItemSprites>().To<InventoryItemSprites>().FromComponentInNewPrefab(ItemsCollection).AsSingle();
+            
         }
 
         void BindPrefabProviders()
@@ -40,10 +43,10 @@ namespace DiUi
         void BindUIViewModels()
         {
             Container.BindInterfacesAndSelfTo<DiUiHUDViewModel>().AsSingle();
-            Container.Bind<DiUiPopUpViewModel>().AsSingle();
-            Container.Bind<DiUiConfirmExitViewModel>().AsSingle();
-            Container.Bind<DiUiPopUpThatHidesEverrythingViewModel>().AsSingle();
-            Container.Bind<DiUiInventoryViewModel>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DiUiPopUpViewModel>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DiUiConfirmExitViewModel>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DiUiPopUpThatHidesEverrythingViewModel>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DiUiInventoryViewModel>().AsSingle();
         }
 
         void BindSignals()

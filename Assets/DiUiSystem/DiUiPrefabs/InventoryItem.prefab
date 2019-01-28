@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7037055170451899876}
   - component: {fileID: 110323093650235741}
+  - component: {fileID: 3455216581086830184}
   m_Layer: 5
   m_Name: InventoryItem
   m_TagString: Untagged
@@ -46,6 +47,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597263178262182224}
   m_CullTransparentMesh: 0
+--- !u!114 &3455216581086830184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597263178262182224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 526415227, guid: 37f8d8a5bbb63f0408b99d56763ce79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewModelTypeName: DiUi.DiUiInventoryItemViewModel
 --- !u!1 &3972413196752192145
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,6 +71,7 @@ GameObject:
   - component: {fileID: 1018755828198800869}
   - component: {fileID: 392601932294139605}
   - component: {fileID: 934980308760537356}
+  - component: {fileID: 1827921388021629580}
   m_Layer: 5
   m_Name: Counter
   m_TagString: Untagged
@@ -206,6 +221,22 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1827921388021629580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3972413196752192145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1670825535, guid: 37f8d8a5bbb63f0408b99d56763ce79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewAdapterTypeName: UnityWeld.Binding.Adapters.IntToStringAdapter
+  viewAdapterOptions: {fileID: 0}
+  viewModelPropertyName: DiUi.DiUiInventoryItemViewModel.AmountText
+  viewPropertyName: TMPro.TextMeshProUGUI.text
 --- !u!1 &4874146369145695353
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +248,7 @@ GameObject:
   - component: {fileID: 6492967361059398910}
   - component: {fileID: 464042716570090359}
   - component: {fileID: 7377943788891795887}
+  - component: {fileID: 5872166976049176158}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -280,3 +312,19 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &5872166976049176158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4874146369145695353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1670825535, guid: 37f8d8a5bbb63f0408b99d56763ce79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewAdapterTypeName: 
+  viewAdapterOptions: {fileID: 0}
+  viewModelPropertyName: DiUi.DiUiInventoryItemViewModel.ItemIcon
+  viewPropertyName: UnityEngine.UI.Image.sprite

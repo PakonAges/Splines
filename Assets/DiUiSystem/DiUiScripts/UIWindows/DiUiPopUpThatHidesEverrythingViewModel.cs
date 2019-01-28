@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Zenject;
+﻿using Zenject;
 
 namespace DiUi
 {
@@ -16,7 +15,7 @@ namespace DiUi
 
         public DiUiPopUpThatHidesEverrythingViewModel(IDiUiPrefabProvider prefabProvider, IUIViewModelsStack uIViewModelsStack) : base(prefabProvider, uIViewModelsStack) { }
 
-        public async Task OpenInventoryView()
+        public async void OpenInventoryView()
         {
             await _Inventory.Open();
         }

@@ -19,9 +19,9 @@ namespace DiUi
         }
 
         [Binding]
-        public async void OnShowInventoryBtn()
+        public void OnShowInventoryBtn()
         {
-            await ViewModel.OpenInventoryView();
+            ViewModel.OpenInventoryView();
         }
     }
 }

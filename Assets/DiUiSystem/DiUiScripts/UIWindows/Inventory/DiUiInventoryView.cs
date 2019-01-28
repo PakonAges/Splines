@@ -17,5 +17,11 @@ namespace DiUi
         {
             ViewModel.Close();
         }
+
+        [Binding]
+        public ObservableList<DiUiInventoryItemViewModel> InventoryItems
+        {
+            get { return ViewModel.InventoryList; }
+        }
     }
 }

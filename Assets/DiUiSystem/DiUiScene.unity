@@ -398,6 +398,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabProviderType: 0
   Cube: {fileID: 4939409722355518366, guid: 0f6193781402d844692e81d6fdc5ac49, type: 3}
+  ItemsCollection: {fileID: 7263562917607622259, guid: 8ca9330ced404384ea69bc8efe503639,
+    type: 3}
 --- !u!4 &8508049038004899288
 Transform:
   m_ObjectHideFlags: 0
