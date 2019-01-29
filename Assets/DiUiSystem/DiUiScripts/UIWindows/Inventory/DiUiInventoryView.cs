@@ -16,13 +16,14 @@ namespace DiUi
         [Binding]
         public void OnUpdateClick()
         {
-            //inventoryItems = ViewModel.InventoryList;
+            foreach (var item in ViewModel.InventoryList)
+            {
+                InventoryItems.Add(item);
+            }
+            
         }
 
         [Binding]
-        public ObservableList<DiUiInventoryItemViewModel> InventoryItems
-        {
-            get { return ViewModel.InventoryList; }
-        }
+        public ObservableList<DiUiInventoryItemViewModel> InventoryItems { get; } = new ObservableList<DiUiInventoryItemViewModel>();
     }
 }
