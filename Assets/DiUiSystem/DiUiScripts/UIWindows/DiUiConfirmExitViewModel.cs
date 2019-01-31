@@ -2,12 +2,7 @@
 {
     public class DiUiConfirmExitViewModel : UiViewModel<DiUiConfirmExitViewModel>
     {
-        DiUiConfirmExitView _view;
-        public DiUiConfirmExitView View
-        {
-            get { return IView as DiUiConfirmExitView; }
-            set { _view = value; }
-        }
+        public DiUiConfirmExitView View { get { return IView as DiUiConfirmExitView; } }
 
         public DiUiConfirmExitViewModel(IDiUiPrefabProvider prefabProvider, IUIViewModelsStack uIViewModelsStack) : base(prefabProvider, uIViewModelsStack) { }
 
