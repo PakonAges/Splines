@@ -16,19 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: cb372b397aa1c384a9694ed15f66d5dd
-  m_SerializeEntries:
-  - m_GUID: 2fdb8f8f20665e440914edc5e46a15b4
-    m_Address: HUDView
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 3aa76a52d950dab4a8692d5fc5852980
-    m_Address: MenuView
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 7fa5f5e81ec1a6e429b4dadfaa0ea629
-    m_Address: SubMenuView
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f46fbe7dab9e13b40add24d79f5820c4, type: 2}
   m_SchemaSet:
