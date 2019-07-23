@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
   m_DefaultGroup: cb372b397aa1c384a9694ed15f66d5dd
-  m_groups: []
+  m_BuildRemoteCatalog: 0
+  m_RemoteCatalogBuildPath:
+    m_Id: 
+  m_RemoteCatalogLoadPath:
+    m_Id: 
+  m_overridePlayerVersion: 
   m_GroupAssets:
   - {fileID: 11400000, guid: 06992068baeb36b429226ccc0405b283, type: 2}
   - {fileID: 11400000, guid: c8a3dd40f68c4a6428a965a580c6bcf4, type: 2}
@@ -59,17 +64,13 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
-  m_SchemaTemplates:
-  - m_DisplayName: Packed Assets
-    m_Description: Pack assets into asset bundles.
-    m_SchemaTypes:
-    - m_AssemblyName: Unity.Addressables.Editor, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      m_ClassName: UnityEditor.AddressableAssets.BundledAssetGroupSchema
-    - m_AssemblyName: Unity.Addressables.Editor, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      m_ClassName: UnityEditor.AddressableAssets.ContentUpdateGroupSchema
+  m_SchemaTemplates: []
+  m_GroupTemplateObjects:
+  - {fileID: 11400000, guid: c1e469d1c6cfa2e46bdd76754cd623b9, type: 2}
   m_InitializationObjects: []
+  m_CertificateHandlerType:
+    m_AssemblyName: 
+    m_ClassName: 
   m_ActivePlayerDataBuilderIndex: 3
   m_ActivePlayModeDataBuilderIndex: 0
   m_DataBuilders:
